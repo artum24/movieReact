@@ -1,0 +1,12 @@
+.videos {
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .video {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 300px;
+    }
+}

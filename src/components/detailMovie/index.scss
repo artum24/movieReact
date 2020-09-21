@@ -1,0 +1,80 @@
+.detailMovie {
+    .media {
+        display: flex;
+        width: 100%;
+    }
+    margin-top: 50px;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    .detailPoster {
+        width: 400px;
+    }
+    .titleSet {
+        font-weight: bold;
+    }
+    .tagline {
+        font-style: italic;
+        margin-top: 10px;
+    }
+    .genres,
+    .production_countries {
+        margin-top: 10px;
+        display: flex;
+        .item {
+            margin-left: 5px;
+        }
+    }
+    .release,
+    .budget,
+    .revenue {
+        margin-top: 10px;
+    }
+    .overview {
+        margin-top: 50px;
+    }
+    .rating {
+        display: flex;
+        margin-top: 10px;
+        .stars {
+            margin-left: 10px;
+        }
+    }
+
+}
+
+
+@media(max-width: 2000px) {
+    .detailMovie{
+        .img {
+            display: grid;
+            justify-content: center;
+            .detailPoster {
+                width: 400px;
+            }
+        }
+        .overview {
+            width: 85%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+}
+@media(max-width: 970px) {
+    .detailMovie{
+        .img {
+            display: grid;
+            justify-content: center;
+            .detailPoster {
+                width: 300px;
+            }
+        }
+        .overview {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+}

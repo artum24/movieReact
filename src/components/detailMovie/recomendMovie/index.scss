@@ -1,0 +1,18 @@
+.recomends {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    .recomend {
+        width: 250px;
+        height: 300px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        .media {
+            width: 250px;
+            height: 190px;
+        }
+        .short {
+            display: flex;
+        }
+    }
+}
