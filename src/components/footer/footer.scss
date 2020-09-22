@@ -1,0 +1,16 @@
+.footer {
+    min-width: 100%;
+    background-color: #303F9F;
+    height: 200px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    .me,
+    .contacts,
+    .links {
+        margin-top: 30px;
+    }
+}

@@ -22,8 +22,12 @@ export const MovieApi = {
         return instance.get(`discover/movie?${API_KEY}&with_genres=${genre}&sort_by=${sort}&year=${year}&page=${page}`)
     },
     search(query,page) {
-        return instance.get(`search/movie?${API_KEY}&language=ru&query=${query}&page=${page}`)
+        return instance.get(`search/movie?${API_KEY}&query=${query}&page=${page}`)
+    },
+    getTabsMovie(name,page) {
+        return instance.get(`movie/${name}?${API_KEY}&page=${page}`)
     }
+    
 }
 
 // getDatailMovie
@@ -41,5 +45,3 @@ export const DetailMovie = {
         return instance.get(`movie/${id}/similar?${API_KEY}`)
     }
 }
-
-

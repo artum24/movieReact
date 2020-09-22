@@ -1,6 +1,6 @@
 .detailMovie {
-    .media {
-        display: flex;
+    .container {
+        // display: flex;
         width: 100%;
     }
     margin-top: 50px;
@@ -42,39 +42,86 @@
     }
 
 }
-
-
-@media(max-width: 2000px) {
-    .detailMovie{
-        .img {
-            display: grid;
-            justify-content: center;
-            .detailPoster {
-                width: 400px;
-            }
-        }
-        .overview {
-            width: 85%;
-            margin-right: auto;
-            margin-left: auto;
+@media screen and (max-width: 1366px) {
+    .detailMovie {
+        .container {
+            display: flex;
         }
     }
-
+    .info-item {
+        margin-left: 40px;
+    }    
 }
-@media(max-width: 970px) {
+
+
+@media screen and (max-width: 992px) {
     .detailMovie{
+        .container {
+            display: flex;
+        }
         .img {
             display: grid;
             justify-content: center;
             .detailPoster {
-                width: 300px;
+                width: 350px;
             }
         }
         .overview {
             width: 100%;
             margin-right: auto;
             margin-left: auto;
+            margin-bottom: 30px;
         }
     }
+}
 
+
+@media screen and (max-width: 768px) {
+    .detailMovie{
+        font-size: 16px;
+        .container {
+            display: flex;
+        }
+        .img {
+            .detailPoster {
+                width: 280px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 578px) {
+    .detailMovie{
+        .container {
+            display: grid;
+            justify-content: left;
+            .info-item {
+                margin-top: 30px;
+                margin-left: 0;
+            }
+        }
+        .img {
+            .detailPoster {
+                width: 350px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .detailMovie{
+        .container {
+            display: grid;
+            justify-content: left;
+            .info-item {
+                margin-top: 30px;
+                margin-left: 0;
+            }
+        }
+        .img {
+            .detailPoster {
+                width: 350px;
+            }
+        }
+    }
 }

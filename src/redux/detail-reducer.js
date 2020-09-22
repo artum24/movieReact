@@ -70,29 +70,21 @@ export const setRecomendation = (recomend) => ({
 
 export const setMovieThunk = (id) =>  async (dispatch) => {
     dispatch(chengeIsFetchin(true))
-    let responce = await DetailMovie.getDetailMovie(id);
-    dispatch(setMovie(responce.data));
-    dispatch(chengeIsFetchin(false))
-}
-export const setActorsThunk = (id) => async (dispatch) => {
-    dispatch(chengeIsFetchin(true))
-    let responce = await DetailMovie.getActorsMovie(id);
-    dispatch(setActors(responce.data.cast));
-    dispatch(chengeIsFetchin(false))
-}
-export const setVideosThunk = (id) => async (dispatch) => {
-    dispatch(chengeIsFetchin(true))
-    let responce = await DetailMovie.getVideoMovie(id);
-    dispatch(setVideos(responce.data.results));
-    dispatch(chengeIsFetchin(false))
-}
-export const setRecomendThunk = (id) => async (dispatch) => {
-    dispatch(chengeIsFetchin(true))
+
+    let responceDetail = await DetailMovie.getDetailMovie(id);
+    dispatch(setMovie(responceDetail.data));
+
+    let responceActor = await DetailMovie.getActorsMovie(id);
+    dispatch(setActors(responceActor.data.cast));
+
+    let responceVideo = await DetailMovie.getVideoMovie(id);
+    dispatch(setVideos(responceVideo.data.results));
+
     let responce = await DetailMovie.getRecomendationMovie(id);
     dispatch(setRecomendation(responce.data.results));
+
     dispatch(chengeIsFetchin(false))
 }
 
-// getRecomendationMovie
 export default DetailMovieReducer;
 

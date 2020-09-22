@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Grid, Typography} from '@material-ui/core';
+import { Typography} from '@material-ui/core';
 import TabsItem from './tabs';
 import Rating from '@material-ui/lab/Rating';
 import Actors from './actors/actorsContainer';
@@ -19,14 +19,13 @@ const DetailMovie = ({movie}) => {
     const release = (movie.release_date === undefined)? '':movie.release_date;
     return (
         <div className='detailMovie'>
-            <Grid container spacing={2}>
-                <div className='media'>
-                    <Grid item xs={5}>
+            <div className='container'>
+                    <div className='media-item'>
                         <div className="img">
                             <img src={url} alt='sasa' className='detailPoster'/>
                         </div>
-                    </Grid>
-                    <Grid item xs={7}>
+                    </div>
+                    <div className='info-item'>
                         <Typography variant='h4'>{movie.title}</Typography>
                         <div className='tagline'>
                             <Typography variant='subtitle1'>{movie.tagline}</Typography>
@@ -69,9 +68,8 @@ const DetailMovie = ({movie}) => {
                         <div className='revenue'>
                             <Typography variant='subtitle1'><span className='titleSet'>Время:</span>{' '}{movie.runtime}{" мин."}</Typography>
                         </div>
-                    </Grid>
                 </div>
-            </Grid>
+            </div>
             <div className='overview'>
                 <Typography variant='subtitle1'>{movie.overview}</Typography>
             </div>

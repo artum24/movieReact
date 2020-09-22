@@ -3,6 +3,7 @@ import NavbarContainer from '../../navbar/navbarContainer';
 import MoviesContainer from '../../movie/moviesContainer';
 import Paginationn from '../../pagination/pagination';
 import SearchContainer from '../../searchPanel/searchContainer';
+import Tabss from '../../tabsMain/tabs';
 import {Grid} from '@material-ui/core';
 
 
@@ -15,7 +16,10 @@ const MainPage = () => {
             <NavbarContainer/>
           </Grid>
           <Grid item xs={9}>
+            <div className='main-header'>
             <SearchContainer/>
+              <Tabss/>
+            </div>
             <MoviesContainer/>
           </Grid>
         </Grid>

@@ -1,5 +1,4 @@
 import {MovieApi} from '../components/api/api';
-
 let initialState = {
     movies: [],
     genre:'',
@@ -8,7 +7,8 @@ let initialState = {
     page:1,
     isFetching: true,
     total_results:0,
-    search:''
+    search:'',
+    tab: 'popular'
 }
 
 const movieReducer = (state=initialState, action) => {
@@ -49,6 +49,12 @@ const movieReducer = (state=initialState, action) => {
                 search: action.payload
             }
         }
+        case 'SET_TABS' : {
+            return {
+                ...state,
+                tab: action.payload
+            }
+        }
         default: 
         return state;
     }
@@ -78,6 +84,11 @@ export const setSearchPanel = (searchText) => ({
     type:'SET_SEARCH',
     payload:searchText
 })
+
+export const setTab = (tab) => ({
+    type :'SET_TABS',
+    payload: tab
+})
 export const setMoviesThunk = (genre,sort,year,page) => async (dispatch) => {
     dispatch(isFetchingChange(true))
     let responce = await MovieApi.getMovies(genre,sort,year,page)
@@ -87,7 +98,14 @@ export const setMoviesThunk = (genre,sort,year,page) => async (dispatch) => {
         dispatch(isFetchingChange(false))
     }
 }
-
+export const setTabThunk = (tab,page) => async (dispatch) => {
+    dispatch(isFetchingChange(true))
+    let responce = await MovieApi.getTabsMovie(tab,page)
+    if(responce.status === 200) {
+        dispatch(setMovie(responce.data.results))
+        dispatch(isFetchingChange(false))
+    }
+}
 export const searchMoviesThunk = (query,page) => async (dispatch) => {
     dispatch(isFetchingChange(true))
     let responce = await MovieApi.search(query,page);

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Movies from './movies';
-import {setMoviesThunk,searchMoviesThunk} from '../../redux/movie-reducer';
+import {setMoviesThunk,searchMoviesThunk,setTabThunk} from '../../redux/movie-reducer';
 import {connect} from 'react-redux';
 import {CircularProgress } from '@material-ui/core';
 
-const MoviesContainer = ({searchMoviesThunk,setMoviesThunk,movies,genres,genre,sort,year,page,isFetching,search}) => {
+const MoviesContainer = ({setTabThunk,searchMoviesThunk,setMoviesThunk,movies,genres,genre,sort,year,page,isFetching,search,tab}) => {
     useEffect(() => {
         if(!search){
             setMoviesThunk(genre,sort,year,page)
@@ -12,8 +12,11 @@ const MoviesContainer = ({searchMoviesThunk,setMoviesThunk,movies,genres,genre,s
         }else if(search.length > 0) {
             searchMoviesThunk(search,page)
             window.scrollTo(0,0)
+        } if (tab !== '') {
+            setTabThunk(tab, page)
+            window.scrollTo(0,0)
         }
-    },[setMoviesThunk,genre,sort,year,page,search,searchMoviesThunk])
+    },[setTabThunk,setMoviesThunk,genre,sort,year,page,search,searchMoviesThunk,tab])
     return (
         <>
             {(!isFetching) ? <Movies movies={movies} genres={genres} />: <CircularProgress/>}
@@ -29,5 +32,6 @@ let mapStateToProps = (state) => ({
     page: state.movie.page,
     isFetching: state.movie.isFetching,
     search: state.movie.search,
+    tab: state.movie.tab
 })
-export default connect(mapStateToProps,{setMoviesThunk,searchMoviesThunk})(MoviesContainer);
+export default connect(mapStateToProps,{setMoviesThunk,searchMoviesThunk,setTabThunk})(MoviesContainer);
