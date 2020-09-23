@@ -6,8 +6,10 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import LoginFormFinish from '../Login/login';
 import {connect} from 'react-redux';
+import {logOut} from '../../redux/auth-reducer';
 import './index.scss';
-const Header = ({isAuth, login}) => {
+
+const Header = ({isAuth, login,logOut}) => {
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
       setOpen(true);
@@ -16,7 +18,10 @@ const Header = ({isAuth, login}) => {
     const handleClose = () => {
       setOpen(false);
     };
-
+    const LogOut = () => {
+        console.log('asassa')
+        logOut()
+    }
     return (
         <div className='header'>
             <Grid container spacing={2} justify='space-between' alignItems='center'>     
@@ -26,7 +31,11 @@ const Header = ({isAuth, login}) => {
                 </div>
                 </NavLink>
                 <div className='logIn'>
-                    {isAuth ?<Typography variant='subtitle1'> {login}</Typography> 
+                    {isAuth 
+                    ?<div className='logOut'>
+                        <Typography variant='subtitle1' className='loginName'> {login}</Typography>
+                        <Typography variant='subtitle1' className='logOutBtn'><Button color='primary' variant="outlined" onClick={LogOut}>LogOut</Button></Typography>
+                    </div> 
                     :<div>
                         <Typography variant='subtitle1' className='logIn'><Button color='primary' variant="outlined" onClick={handleClickOpen}>LogIn</Button></Typography>
                         <div className='modal'>
@@ -46,4 +55,4 @@ let mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     login: state.auth.login
 })
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps,{logOut})(Header);

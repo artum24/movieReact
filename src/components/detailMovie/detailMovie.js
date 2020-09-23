@@ -8,6 +8,7 @@ import RecomendMovieContainer from './recomendMovie/recomendMovieContainer';
 import './index.scss';
 
 const DetailMovie = ({movie}) => {
+    console.log(movie)
     const [value, setValue] = useState(0)
     const handleChange = (event,newValue) => {
         console.log(Boolean(newValue))

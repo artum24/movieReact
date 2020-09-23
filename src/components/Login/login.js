@@ -5,6 +5,7 @@ import {validateLogIn} from '../../utils/validator';
 import logInTextField from '../common/Forms/logIn';
 import {connect} from 'react-redux';
 import {setIsAuth} from '../../redux/auth-reducer';
+import { Redirect } from 'react-router-dom';
 const LoginForm = ({handleSubmit, pristine, submitting}) => {
   return (
     <form onSubmit={handleSubmit}>
@@ -17,17 +18,18 @@ const LoginForm = ({handleSubmit, pristine, submitting}) => {
       <div />
       <div className='submitBtn'>
         <Button variant='outlined' color='primary' type="submit" disabled={pristine || submitting} >
-          Submit
+          LogIn
         </Button>
       </div>
     </form>
   )
 }
-const LoginFormFinish = ({setIsAuth}) => {
+const LoginFormFinish = ({setIsAuth,isAuth}) => {
     const submit = (values) => {
         console.log(values)
         setIsAuth(values.login,values.password)
     }
+    if (isAuth) return <Redirect to='/'/>
     return (
         <LoginFormRedux onSubmit={submit}/>
     )
@@ -35,6 +37,6 @@ const LoginFormFinish = ({setIsAuth}) => {
 
 const LoginFormRedux = reduxForm({form: 'MaterialUiForm', validate:validateLogIn})(LoginForm)
 let mapStateToProps = (state) => ({
-
+  isAuth: state.auth.isAuth
 })
 export default connect(mapStateToProps,{setIsAuth})(LoginFormFinish)

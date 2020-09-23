@@ -45,3 +45,7 @@ export const DetailMovie = {
         return instance.get(`movie/${id}/similar?${API_KEY}`)
     }
 }
+
+// actor
+// /person/{person_id}
+// /person/{person_id}/movie_credits
