@@ -13,3 +13,19 @@
         }
     }
 }
+
+@media (max-width: 480px) {
+    .actors {
+        display: flex;
+        justify-content: center;
+        .actor {
+            width: 150px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            .media {
+                width: 150px;
+                height: 220px;
+            }
+        }
+    }
+}

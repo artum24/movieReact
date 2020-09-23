@@ -6,7 +6,6 @@ import SearchContainer from '../../searchPanel/searchContainer';
 import Tabss from '../../tabsMain/tabs';
 import {Grid} from '@material-ui/core';
 
-
 const MainPage = () => {
 
     return (

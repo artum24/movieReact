@@ -16,3 +16,25 @@
 .sort {
     margin-top: 40px;
 }
+
+@media(max-width: 2000px) {
+    .mobileIcon {
+        display: none;
+    }
+}
+
+@media(max-width: 480px) {
+    .mobileIcon {
+        display: flex;
+        justify-content: center;
+        .form {
+            display: flex;
+        }
+        .ganra {
+            margin-left: 20px;
+        }
+    }
+    .navbar {
+        display: none;
+    }
+}

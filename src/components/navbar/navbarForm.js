@@ -9,7 +9,7 @@ import Year from '../common/Forms/year';
 const NavbarForm = ({handleSubmit,genres,isFetching}) => {
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='form'>
             <div className='ganra'>
                 <Field name='genres' component={GanrasForm} label='ganra'>
                     <option value=''></option>

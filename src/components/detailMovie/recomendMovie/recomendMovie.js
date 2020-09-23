@@ -19,12 +19,12 @@ const RecomendMovie = ({title,url,vote_average,release_date, id}) => {
                     </div>
                     <div className='short'>
                         <div className='release'>
-                        <Typography variant='subtitle1'>{release} г.</Typography>
+                            <Typography variant='subtitle1'>{release} г.</Typography>
+                        </div>
+                        <div className='vote'>
+                            <Rating name='read-only' precision={0.1} defaultValue={2.5} value={vote_average/2} readOnly/>
+                        </div>
                     </div>
-                    <div className='vote'>
-                        <Rating name='read-only' precision={0.1} defaultValue={2.5} value={vote_average/2} readOnly/>
-                    </div>
-                </div>
                 </CardActionArea>
             </Card>
       </NavLink>

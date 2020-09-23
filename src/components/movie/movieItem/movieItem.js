@@ -27,15 +27,15 @@ const MovieItem = ({data,genres}) => {
                 <p> {item}</p>
               </div>
             ))}
+          </div>
+          <div className='short'>
+            <div className='release'>
+              <p>{release} г.</p>
             </div>
-              <div className='short'>
-                <div className='release'>
-                  <p>{release} г.</p>
-                </div>
-                <div className='vote'>
-                  <Rating name='read-only' precision={0.1} defaultValue={2.5} value={data.vote_average/2} readOnly/>
-                </div>
+            <div className='vote'>
+              <Rating name='read-only' precision={0.1} defaultValue={2.5} value={data.vote_average/2} readOnly/>
             </div>
+          </div>
         </CardActionArea>
       </Card>
     </NavLink>

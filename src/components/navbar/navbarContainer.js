@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
-import Navbar from './navbar';
 import {connect} from 'react-redux';
 import {setNavbarDataThunk} from '../../redux/navbar-reducer';
 import {setSearchSet,setSearchPanel} from '../../redux/movie-reducer'; 
+import {TemporaryDrawer} from './navbar';
 const NavbarContainer = ({setNavbarDataThunk,genres,setSearchSet,isFetching,setSearchPanel}) => {
     useEffect(() => {
         setNavbarDataThunk()
     },[setNavbarDataThunk])
 
     return (
-        <Navbar genres={genres} setSearchSet={setSearchSet} isFetching={isFetching} setSearchPanel={setSearchPanel}/>
-    )
+        <>
+            <TemporaryDrawer genres={genres} setSearchSet={setSearchSet} isFetching={isFetching} setSearchPanel={setSearchPanel}/>
+        </>
+        )
 }
 
 let mapStateToProps = (state) => ({

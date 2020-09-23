@@ -103,6 +103,7 @@ export const setTabThunk = (tab,page) => async (dispatch) => {
     let responce = await MovieApi.getTabsMovie(tab,page)
     if(responce.status === 200) {
         dispatch(setMovie(responce.data.results))
+        dispatch(setTotalResults(responce.data.total_results))
         dispatch(isFetchingChange(false))
     }
 }

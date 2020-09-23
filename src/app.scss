@@ -239,8 +239,18 @@ a {
 }
 
 @media(max-width:480px) {
+    .headerTabs {
+        width: 500px;
+        .mainTabs {
+            margin-left: -50px;
+            .mainTabsItem {
+                font-size: 18px;
+                margin-left: 20px;
+            }
+        }
+    }
     .movies {
-        justify-content: center;
+        width: 500px;
     }
     .card {
         max-width: 220px;

@@ -22,3 +22,26 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width:485px) {
+    .recomends {
+        width: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+        .recomend {
+            width: 150px;
+            height: 300px;
+            margin-right: 10px;
+            margin-bottom: 15px;
+            .media {
+                width: 150px;
+                height: 190px;
+            }
+            .short {
+                display: flex;
+            }
+        }
+    }
+}
