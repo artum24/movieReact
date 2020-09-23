@@ -11,3 +11,17 @@ export const validateNavbar = values => {
     } 
     return errors
 }
+
+export const validateLogIn = values => {
+  const errors = {}
+  const requiredFields = [
+    'login',
+    'password',
+  ]
+  requiredFields.forEach(field => {
+    if (!values[field]) {
+      errors[field] = 'Required'
+    }
+  })
+  return errors
+}

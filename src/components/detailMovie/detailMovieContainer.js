@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom';
 import {setMovieThunk} from '../../redux/detail-reducer';
 import DetailMovie from './detailMovie';
 import {CircularProgress } from '@material-ui/core';
-
+import {withAuthRedirect} from '../hoc/hoc';
+import {compose} from 'redux';
 const DetailMovieContainer = ({movie,match,setMovieThunk,isFetching}) => {
     const id =match.url.slice(7);
     const idActor = id.substr(0, id.length - 7)
@@ -12,7 +13,6 @@ const DetailMovieContainer = ({movie,match,setMovieThunk,isFetching}) => {
         setMovieThunk(idActor)
         console.log('movie')
     },[setMovieThunk,idActor])
-
     return (
         <>
             {(!isFetching) ? <DetailMovie movie={movie}/>: <CircularProgress/> }
@@ -22,7 +22,10 @@ const DetailMovieContainer = ({movie,match,setMovieThunk,isFetching}) => {
 
 let mapStateToProps = (state) => ({
     movie: state.detail.movie,
-    isFetching: state.detail.isFetching
+    isFetching: state.detail.isFetching,
 })
 let DetailMovieContainerWithRouter = withRouter(DetailMovieContainer)
-export default connect(mapStateToProps,{setMovieThunk})(DetailMovieContainerWithRouter)
+export default compose(
+    connect(mapStateToProps,{setMovieThunk}),
+    withAuthRedirect
+)(DetailMovieContainerWithRouter)

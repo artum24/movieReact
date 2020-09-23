@@ -4,11 +4,13 @@ import thunkMiddleware from 'redux-thunk';
 import navbarReducer from './navbar-reducer';
 import movieReducer from './movie-reducer';
 import DetailMovieReducer from './detail-reducer';
+import AuthReducer from './auth-reducer';
 let reducers = combineReducers({
     form: formReducer,
     navbar: navbarReducer,
     movie: movieReducer,
-    detail:DetailMovieReducer
+    detail:DetailMovieReducer,
+    auth:AuthReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

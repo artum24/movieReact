@@ -19,7 +19,6 @@ const useStyles = makeStyles({
   });
 
 export const TemporaryDrawer = ({genres,setSearchSet,isFetching,setSearchPanel}) =>{
-    console.log(genres)
     const classes = useStyles();
     const [state, setState] = React.useState({
         left: false,
