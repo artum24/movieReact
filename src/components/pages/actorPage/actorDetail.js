@@ -41,7 +41,7 @@ const ActorDetail = ({actor,movie}) => {
                 <Typography variant='subtitle1'>{bio}</Typography>
             </div>
             <div className='listMovie'>
-                <Typography variant='h6'>АКТЕР В</Typography>
+                <Typography variant='h6' className='info-actor'>АКТЕР В</Typography>
                 {movie.map(item => <ItemMovie movie={item}/>)}
             </div>
         </div>

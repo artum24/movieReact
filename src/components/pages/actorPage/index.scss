@@ -13,10 +13,16 @@
         flex-wrap: wrap;
     }
 }
-
+.info-actor {
+    width: 100%;
+    display: flex;
+    padding-bottom: 40px;
+    justify-content: center;
+}
 .listMovie {
     display: flex;
     flex-wrap: wrap;
+
 }
 
 @media(max-width: 480px) {
