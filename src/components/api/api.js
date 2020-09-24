@@ -46,6 +46,13 @@ export const DetailMovie = {
     }
 }
 
-// actor
-// /person/{person_id}
 // /person/{person_id}/movie_credits
+// Actors 
+export const DetailActors = {
+    getDetatilActor(id) {
+        return instance.get(`person/${id}?${API_KEY}`)
+    },
+    getActorMovie(id) {
+        return instance.get(`person/${id}/movie_credits?${API_KEY}`)
+    }
+}

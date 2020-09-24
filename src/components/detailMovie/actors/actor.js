@@ -9,7 +9,7 @@ const Actor = ({actor}) => {
         console.log(actor.id)
     }
     return (
-        // <NavLink to='/actor/2'>
+        <NavLink to={`/actor/${actor.id}`}>
             <div className='actor'>
                 <Card onClick={asd}>
                     <CardActionArea>
@@ -19,7 +19,7 @@ const Actor = ({actor}) => {
                         </CardActionArea>
                     </Card>
             </div>
-        // </NavLink>
+        </NavLink>
     )
 }
 

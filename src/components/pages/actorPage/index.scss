@@ -1,0 +1,28 @@
+.info {
+    margin-left: 30px;
+    .name {
+        margin-bottom: 40px;
+    }
+    .birthday,
+    .place,
+    .knowHow {
+        margin-top: 10px;
+    }
+    .knowHow {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.listMovie {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media(max-width: 480px) {
+    .listMovie {
+        // margin-left: 40px;
+        width: 100%;
+        justify-content: center;
+    }
+}
