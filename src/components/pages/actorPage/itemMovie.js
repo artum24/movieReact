@@ -20,14 +20,6 @@ const ItemMovie = ({movie}) => {
           <div className='title'>
             <p>{movie.title}</p>
           </div>
-          {/* <div className='genre'>
-            <p>Жанри: </p>
-            {genres.map(item => (
-              <div className='item' key={item}>
-                <p> {item}</p>
-              </div>
-            ))}
-          </div> */}
           <div className='short'>
             <div className='release'>
               <p>{release} г.</p>

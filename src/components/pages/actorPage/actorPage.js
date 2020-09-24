@@ -6,7 +6,7 @@ import ActorDetail from './actorDetail';
 import {setActorDetailThunk} from '../../../redux/actors-reducer';
 import {withAuthRedirect} from '../../hoc/hoc';
 import {compose} from 'redux';
-const ActorPageContainer = ({match,isFetching,detail,setActorDetailThunk,actorsMovie}) => {
+const ActorPageContainer = ({match,isFetching,detail,setActorDetailThunk,actorsMovie,images}) => {
     const id =match.url.slice(7);
     useEffect(() => {
         setActorDetailThunk(id)
@@ -14,7 +14,7 @@ const ActorPageContainer = ({match,isFetching,detail,setActorDetailThunk,actorsM
     },[setActorDetailThunk, id])
     return (
         <>
-            {(!isFetching) ? <ActorDetail actor={detail} movie={actorsMovie}/>: <CircularProgress/> }
+            {(!isFetching) ? <ActorDetail actor={detail} movie={actorsMovie} images={images} />: <CircularProgress/> }
         </>
     )
 }
@@ -22,7 +22,8 @@ const ActorPageContainer = ({match,isFetching,detail,setActorDetailThunk,actorsM
 let mapStateToProps = (state) => ({
     isFetching: state.actor.isFetching,
     detail: state.actor.detail,
-    actorsMovie: state.actor.actorsMovie
+    actorsMovie: state.actor.actorsMovie,
+    images: state.actor.images
 })
 let ActorPageContainerWithRouter = withRouter(ActorPageContainer)
 export default compose(

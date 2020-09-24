@@ -3,7 +3,7 @@ import { Typography} from '@material-ui/core';
 import ItemMovie from './itemMovie';
 import './index.scss';
 
-const ActorDetail = ({actor,movie}) => {
+const ActorDetail = ({actor,movie,images}) => {
     let bio = (actor.biography.length > 500) ? actor.biography.slice(0,500)+'...' : actor.biography;
     let url = (actor.profile_path === null) ? 
     'https://w7.pngwing.com/pngs/1010/410/png-transparent-logo-question-hollow-question-mark-miscellaneous-angle-text.png':
@@ -37,12 +37,15 @@ const ActorDetail = ({actor,movie}) => {
                     </Typography>
                 </div>
             </div>
-            <div className='overview'>
+            <div className='images'>
+                        {images.map( item =>  <img key={item.file_path} alt='assa' src={`https://image.tmdb.org/t/p/w500${item.file_path}`} className='smallImage'/>)}
+                    </div>
+            <div className='overvieww'>
                 <Typography variant='subtitle1'>{bio}</Typography>
             </div>
             <div className='listMovie'>
                 <Typography variant='h6' className='info-actor'>АКТЕР В</Typography>
-                {movie.map(item => <ItemMovie movie={item}/>)}
+                {movie.map(item => <ItemMovie key={item.id} movie={item}/>)}
             </div>
         </div>
     )

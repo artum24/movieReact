@@ -5,7 +5,6 @@ const instance = axios.create({
     baseURL: url,
 })
 
-
 // Navbar
 export const navbarAPI = {
     getGenras() {
@@ -44,9 +43,9 @@ export const DetailMovie = {
     getRecomendationMovie(id) {
         return instance.get(`movie/${id}/similar?${API_KEY}`)
     }
+    // /person/{person_id}/images
 }
 
-// /person/{person_id}/movie_credits
 // Actors 
 export const DetailActors = {
     getDetatilActor(id) {
@@ -54,5 +53,8 @@ export const DetailActors = {
     },
     getActorMovie(id) {
         return instance.get(`person/${id}/movie_credits?${API_KEY}`)
+    },
+    getActorImage(id) {
+        return instance.get(`/person/${id}/images?${API_KEY}`)
     }
 }
