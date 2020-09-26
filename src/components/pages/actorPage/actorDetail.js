@@ -9,13 +9,11 @@ import './index.scss';
 const ActorDetail = ({actor,movie,images}) => {
     let bio = (actor.biography.length > 500) ? actor.biography.slice(0,500)+'...' : actor.biography;
     let imgArr = [];
-    console.log(images)
     for (let i = 0; i < images.length; i++) {
         imgArr.push({url:`https://image.tmdb.org/t/p/w500${images[i].file_path}`, alt:'asas'})
     }
-    console.log(imgArr)
     return (
-        <div className='detailMovie'>
+        <div className='detailMoviee'>
             <div className='container'>
                 <div className='media-item'>
                     <div className="img">

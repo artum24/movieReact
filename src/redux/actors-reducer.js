@@ -62,7 +62,6 @@ export const setActorDetailThunk = (id) =>  async (dispatch) => {
     let responceActorMovie = await DetailActors.getActorMovie(id)
     dispatch(setActorsMovie(responceActorMovie.data.cast));
     let responceActorImage = await DetailActors.getActorImage(id)
-    console.log(responceActorImage.data.profiles);
     dispatch(setActorImage(responceActorImage.data.profiles))
     dispatch(chengeIsFetchin(false))
 }

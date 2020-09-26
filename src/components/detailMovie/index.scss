@@ -1,77 +1,65 @@
-.detailMovie {
+.detailMovie{
     .container {
-        // display: flex;
-        width: 100%;
-    }
-    margin-top: 50px;
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-    .detailPoster {
-        width: 400px;
-    }
-    .titleSet {
-        font-weight: bold;
-    }
-    .tagline {
-        font-style: italic;
-        margin-top: 10px;
-    }
-    .genres,
-    .production_countries {
-        margin-top: 10px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
         display: flex;
-        .item {
-            margin-left: 5px;
-        }
-    }
-    .release,
-    .budget,
-    .revenue {
-        margin-top: 10px;
-    }
-    .overview {
         margin-top: 50px;
-    }
-    .rating {
-        display: flex;
-        margin-top: 10px;
-        .stars {
-            margin-left: 10px;
+        margin-bottom: 30px;
+        .media-item {
+            width: 20%;
+            .img {
+                display: grid;
+                justify-content: center;
+                .detailPoster {
+                    width: 350px;
+                }
+            }
+        }
+        .info-item {
+            margin-left: 100px;
+            .genres,
+            .release,
+            .production_countries,
+            .rating,
+            .budget,
+            .revenue{
+                margin-top: 15px;
+                display: flex;
+            }
         }
     }
 
-}
-
-@media screen and (max-width: 2000px) {
-    .detailMovie {
-        .container {
-            display: flex;
-        }
+    .overview {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 30px;
     }
-    .info-item {
-        margin-left: 40px;
-    }    
-}
+} 
 
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
     .detailMovie{
         .container {
-            display: flex;
-        }
-        .img {
-            display: grid;
-            justify-content: center;
-            .detailPoster {
-                width: 350px;
+            .media-item {
+                width: 50%;
             }
+        }
+        .info-item {
+            margin-left: 10px;
         }
         .overview {
             width: 100%;
-            margin-right: auto;
-            margin-left: auto;
-            margin-bottom: 30px;
+        }
+    }
+}
+@media screen and (max-width: 992px) {
+    .detailMovie{
+        .container {
+            .media-item {
+                width: 50%;
+            }
         }
     }
 }
@@ -81,11 +69,15 @@
     .detailMovie{
         font-size: 16px;
         .container {
-            display: flex;
-        }
-        .img {
-            .detailPoster {
-                width: 280px;
+            .info-item {
+                margin-left: 40px;
+            }
+            .media-item {
+                .img {
+                    .detailPoster {
+                        width: 270px;
+                    }
+                }
             }
         }
     }

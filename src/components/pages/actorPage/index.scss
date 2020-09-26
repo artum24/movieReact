@@ -1,84 +1,140 @@
-.info {
-    margin-left: 30px;
-    .name {
+.detailMoviee {
+    .container {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px;
+        display: flex;
+        .info {
+            margin-left: 40px;
+            .name {
+                margin-bottom: 40px;
+            }
+            .birthday,
+            .place,
+            .knowHow {
+                margin-top: 20px;
+            }
+            .knowHow {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+        .media-item {
+            width: 30%;
+            .detailPoster {
+                max-width: 350px;
+            }
+            .cardd {
+                width: 400px;
+                padding-right: 50px;
+            }
+        }
+    }
+    .info-actor {
+        width: 100%;
+        display: flex;
+        padding-bottom: 40px;
+        justify-content: center;
+    }
+    .overvieww {
+        margin-top: 30px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
         margin-bottom: 40px;
     }
-    .birthday,
-    .place,
-    .knowHow {
-        margin-top: 10px;
-    }
-    .knowHow {
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
-.overvieww {
-    margin-top: 30px;
-}
-.media-item {
-    width: 100%;
 }
 
-.info-actor {
-    width: 100%;
-    display: flex;
-    padding-bottom: 40px;
-    justify-content: center;
-}
+
 .listMovie {
     display: flex;
     flex-wrap: wrap;
 
 }
-
-
-@media (max-width:375px) {
-    .detailMovie {
-        width: 365px;
+@media (max-width:1200px) {
+    .detailMoviee {
         .container {
             margin-right: 0;
+            margin-top: 50px;
+            .media-item {
+                width: 60%;
+                .cardd {
+                    width: 400px;
+                }
+            }
         }
     }
     .listMovie {
         width: 100%;
         justify-content: center;
     }
-    .recomends {
-        width: 365px;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 30px;
-        .recomend {
-            width: 100px;
-            height: 220px;
-            margin-right: 10px;
-            margin-bottom: 15px;
-            .title {
-                font-size: 14px;
-            }
-            .media {
-                width: 100px;
-                height: 120px;
-            }
-            .short {
-                display: flex;
-                justify-content: space-between;
-                height: 20px;
-                p {
-                    font-size: 11px;
-                }
-                .release {
-                    margin: 0;
-                }
-                .vote {
-                    margin: 0;
-                    margin-top: 10px;
-                    .MuiRating-decimal {
-                        font-size: 0.8rem;
-                    }
+}
+@media (max-width:992px) {
+    .detailMoviee {
+        .container {
+            .media-item {
+                width: 80%;
+                .cardd {
+                    width: 250px;
+                    padding-right: 0;
                 }
             }
         }
+    }
+    .listMovie {
+        width: 100%;
+        justify-content: center;
+    }
+}
+@media (max-width:630px) {
+    .detailMoviee {
+        .container {
+            .media-item {
+                width: 100%;
+                .cardd {
+                    width: 200px;
+                }
+            }
+        }
+    }
+    .listMovie {
+        width: 100%;
+        justify-content: center;
+    }
+}
+@media (max-width:375px) {
+    .detailMoviee {
+        width: 365px;
+        .container {
+            width: 100%;
+            margin: 0;
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            .info {
+                margin-left: 0;
+            }
+            .media-item {
+                width: 30%;
+                display: flex;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                .detailPoster {
+                    width: 250px;
+                }
+                .cardd {
+                    width: 200px;
+                }
+            }
+        }
+    }
+    .overvieww {
+        margin-left: 0;
+    }
+    .listMovie {
+        width: 100%;
+        justify-content: center;
     }
 }

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Galleria } from 'primereact/galleria';
 
 const Gallery = ({images}) =>  {
-    console.log(images)
     const [activeIndex, setActiveIndex] = useState(2)
     let responsiveOptions = [
         {
@@ -11,7 +10,7 @@ const Gallery = ({images}) =>  {
         },
         {
             breakpoint: '768px',
-            numVisible: 2
+            numVisible: 3
         },
         {
             breakpoint: '560px',

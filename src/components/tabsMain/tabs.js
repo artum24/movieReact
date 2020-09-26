@@ -10,7 +10,6 @@ const Tabss = ({setTab,tab}) => {
   ]
 
   const handleChange = (value) => {
-    console.log(value)
     setTab(value);
   };
 

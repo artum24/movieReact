@@ -16,12 +16,10 @@
 .sort {
     margin-top: 40px;
 }
-
-@media(max-width: 2000px) {
-    .mobileIcon {
-        display: none;
-    }
+.mobileIcon {
+    display: none;
 }
+
 
 @media(max-width: 375px) {
     .mobileIcon {
