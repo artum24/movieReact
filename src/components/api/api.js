@@ -42,8 +42,8 @@ export const DetailMovie = {
     },
     getRecomendationMovie(id) {
         return instance.get(`movie/${id}/similar?${API_KEY}`)
-    }
-    // /person/{person_id}/images
+    },
+
 }
 
 // Actors 

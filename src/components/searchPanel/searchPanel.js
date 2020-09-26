@@ -3,10 +3,9 @@ import {reduxForm, Field} from 'redux-form';
 import renderTextField from '../common/Forms/searchPanelForm';
 import {Button} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-
+import './index.scss';
 const SearchPanel = ({setSearchPanel,searchMoviesThunk}) => {
     const Submit = (values) => {
-        console.log(values)
         setSearchPanel(values.searchPanel)
         searchMoviesThunk(values.searchPanel)
     }

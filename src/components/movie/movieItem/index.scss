@@ -1,41 +1,236 @@
-// .card {
-//     a {
-//         text-decoration: none;
-//     }
-//     max-width: 245px;
-//     max-height: 500px;
-//     margin-right: 20px;
-//     margin-bottom: 20px;
-//     .media {
-//         width: 250px;
-//         height: 310px;
-//     }
-//     .title {
-//         margin-top: 7px;
-//         margin-left: 10px;
-//         height: 50px;
-//     }
-//     .genre {
-//         display: flex;
-//         flex-wrap: wrap;
-//         margin-left: 10px;
-//         height: 70px;
-//         margin-top: 5px;
-//         line-height: 20px;
-//         .item {
-//             margin-left: 5px;
-//         }
-//     }
-//     .short {
-//         display: flex;
-//         justify-content: space-between;
-//         margin-bottom: 10px;
-//         margin-top: 20px;
-//         .release {
-//             margin-left: 10px;
-//         }
-//         .vote {
-//             margin-right: 10px;
-//         }
-//     }
-// }
+.card {
+    a {
+        text-decoration: none;
+    }
+    max-width: 245px;
+    max-height: 500px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    .media {
+        width: 250px;
+        height: 310px;
+    }
+    .title {
+        margin-top: 7px;
+        margin-left: 10px;
+        height: 50px;
+    }
+    .genre {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 10px;
+        height: 70px;
+        margin-top: 5px;
+        line-height: 20px;
+        .item {
+            margin-left: 5px;
+        }
+    }
+    .short {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        .release {
+            margin-left: 10px;
+        }
+        .vote {
+            margin-right: 10px;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+
+@media(max-width:2000px) {
+    .card {
+        max-width: 280px;
+        max-height: 600px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .media {
+            width: 280px;
+            height: 320px;
+        }
+        .title {
+            margin-top: 7px;
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: 500;
+            height: 40px;
+        }
+        .genre {
+            font-size: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 10px;
+            margin-top: 10px;
+            line-height: 20px;
+            height: 40px;
+            .item {
+                margin-left: 5px;
+            }
+        }
+        .short {
+            font-size: 16px;
+            bottom: 0;
+            
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            .release {
+                margin-left: 10px;
+            }
+            .vote {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+@media(max-width:1005px) {
+    .card {
+        max-width: 200px;
+        max-height: 400px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .media {
+            width: 200px;
+            height: 250px;
+        }
+        .title {
+            margin-top: 7px;
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: 500;
+            height: 30px;
+        }
+        .genre {
+            font-size: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 10px;
+            margin-top: 10px;
+            line-height: 20px;
+            .item {
+                margin-left: 5px;
+            }
+        }
+        .short {
+            font-size: 16px;
+            bottom: 0;
+            
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            .release {
+                margin-left: 10px;
+            }
+            .vote {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+@media(max-width:754px) {
+    .card {
+        max-width: 180px;
+        max-height: 400px;
+        .media {
+            width: 180px;
+            height: 200px;
+        }
+        .title {
+            font-size: 18px;
+            height: 30px;
+        }
+        .genre {
+            font-size: 14px;
+            height: 20px;
+        }
+        .short {
+            font-size: 14px;
+            .vote {
+                font-size: 14px;
+                height: 10px;
+                .MuiRating-decimal {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:708px) {
+    .movies {
+        justify-content: center;
+    }
+    .card {
+        max-width: 220px;
+        max-height: 400px;
+        .media {
+            width: 220px;
+            height: 240px;
+        }
+    }
+}
+
+@media(max-width:375px) {
+    .movies {
+        width: 365px;
+        justify-content: center;
+    }
+    .card {
+        max-width: 100px;
+        max-height: 200px;
+        .media {
+            width: 100px;
+            height: 120px;
+        }
+        .title {
+            margin-top: 3px;
+            margin-left: 0;
+            height: 0px;
+            font-size: 14px;
+        }
+        .genre {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 0px;
+            height: 10px;
+            margin-left: 0;
+            font-size: 11px;
+            margin-top: 20px;
+            line-height: 11px;
+            .item {
+                margin-left: 5px;
+            }
+        }
+        .short {
+            margin-top: 10px;
+            .release {
+                margin-left: 0px;
+                font-size: 11px;
+            }
+            .vote {
+                margin-right: 0px;
+                .MuiRating-decimal {
+                    font-size: 0.8rem;
+                }
+            }
+        }    
+    }
+}

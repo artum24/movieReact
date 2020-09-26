@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import { Typography,Grid } from '@material-ui/core';
 import React from 'react';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -8,6 +8,7 @@ import './footer.scss';
 
 const Footer = () => {
     return (
+        <Grid container spacing={2} justify='space-between' alignItems='center'>     
         <div className='footer'>
             <div className='me'>
                 <Typography variant='h6'>Admin</Typography>
@@ -23,8 +24,8 @@ const Footer = () => {
                 <GitHubIcon color='inherit'/>
                 <LinkedInIcon color='inherit'/>
             </div>
-
         </div>
+        </Grid>
     )
 }
 

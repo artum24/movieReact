@@ -14,7 +14,7 @@ const ActorPageContainer = ({match,isFetching,detail,setActorDetailThunk,actorsM
     },[setActorDetailThunk, id])
     return (
         <>
-            {(!isFetching) ? <ActorDetail actor={detail} movie={actorsMovie} images={images} />: <CircularProgress/> }
+            {(!isFetching) ? <ActorDetail actor={detail} movie={actorsMovie} images={images} />: <div className='loader'><CircularProgress/></div> }
         </>
     )
 }

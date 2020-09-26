@@ -19,7 +19,7 @@ const MoviesContainer = ({setTabThunk,searchMoviesThunk,setMoviesThunk,movies,ge
     },[setTabThunk,setMoviesThunk,genre,sort,year,page,search,searchMoviesThunk,tab])
     return (
         <>
-            {(!isFetching) ? <Movies movies={movies} genres={genres} />: <CircularProgress/>}
+            {(!isFetching) ? <Movies movies={movies} genres={genres} />: <div className='loader'><CircularProgress/></div>}
         </>
     )
 }

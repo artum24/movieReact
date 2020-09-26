@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Typography} from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -23,21 +23,21 @@ const Header = ({isAuth, login,logOut}) => {
         logOut()
     }
     return (
-        <div className='header'>
-            <Grid container spacing={2} justify='space-between' alignItems='center'>     
+        <Grid container spacing={2} justify='space-between' alignItems='center'>     
+            <div className='header'>
                 <NavLink to='/'>
-                <div className="logo">
-                    <Typography variant='h3'>КиноМир</Typography>
-                </div>
+                    <div className="logo">
+                        <p>КиноМир</p>
+                    </div>
                 </NavLink>
                 <div className='logIn'>
                     {isAuth 
                     ?<div className='logOut'>
-                        <Typography variant='subtitle1' className='loginName'> {login}</Typography>
-                        <Typography variant='subtitle1' className='logOutBtn'><Button color='primary' variant="outlined" onClick={LogOut}>LogOut</Button></Typography>
+                        <p className='loginName'> {login}</p>
+                        <p className='logOutBtn'><Button style={{color:'white'}} onClick={LogOut}>LogOut</Button></p>
                     </div> 
                     :<div>
-                        <Typography variant='subtitle1' className='logIn'><Button color='primary' variant="outlined" onClick={handleClickOpen}>LogIn</Button></Typography>
+                        <p className='logIn'><Button style={{color:'white'}}  onClick={handleClickOpen}>LogIn</Button></p>
                         <div className='modal'>
                             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                                 <DialogTitle id="form-dialog-title">LogIn</DialogTitle>
@@ -47,8 +47,8 @@ const Header = ({isAuth, login,logOut}) => {
                     </div>
                     }
                 </div>
+                </div>
             </Grid>
-        </div>
     )
 }
 let mapStateToProps = (state) => ({

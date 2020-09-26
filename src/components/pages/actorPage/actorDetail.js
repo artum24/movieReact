@@ -1,19 +1,25 @@
 import React from 'react';
 import { Typography} from '@material-ui/core';
 import ItemMovie from './itemMovie';
+import Gallery from './Gallery';
+import { ScrollPanel } from 'primereact/scrollpanel';
+
 import './index.scss';
 
 const ActorDetail = ({actor,movie,images}) => {
     let bio = (actor.biography.length > 500) ? actor.biography.slice(0,500)+'...' : actor.biography;
-    let url = (actor.profile_path === null) ? 
-    'https://w7.pngwing.com/pngs/1010/410/png-transparent-logo-question-hollow-question-mark-miscellaneous-angle-text.png':
-    `https://image.tmdb.org/t/p/w500${actor.profile_path}`;
+    let imgArr = [];
+    console.log(images)
+    for (let i = 0; i < images.length; i++) {
+        imgArr.push({url:`https://image.tmdb.org/t/p/w500${images[i].file_path}`, alt:'asas'})
+    }
+    console.log(imgArr)
     return (
         <div className='detailMovie'>
             <div className='container'>
                 <div className='media-item'>
                     <div className="img">
-                        <img src={url} alt='sasa' className='detailPoster'/>
+                        {(imgArr.length < 3) ?<img src={imgArr[0].url} alt='sasa' className='detailPoster'/> : <Gallery images={imgArr}/>}
                     </div>
                 </div>
                 <div className='info'>
@@ -37,16 +43,15 @@ const ActorDetail = ({actor,movie,images}) => {
                     </Typography>
                 </div>
             </div>
-            <div className='images'>
-                        {images.map( item =>  <img key={item.file_path} alt='assa' src={`https://image.tmdb.org/t/p/w500${item.file_path}`} className='smallImage'/>)}
-                    </div>
             <div className='overvieww'>
                 <Typography variant='subtitle1'>{bio}</Typography>
             </div>
-            <div className='listMovie'>
-                <Typography variant='h6' className='info-actor'>АКТЕР В</Typography>
-                {movie.map(item => <ItemMovie key={item.id} movie={item}/>)}
-            </div>
+            <Typography variant='h6' className='info-actor'>АКТЕР В</Typography>
+            <ScrollPanel style={{width:'100%', height:'300px'}} className="custom">
+                <div className='recomends'>
+                    {movie.map(item => <ItemMovie key={item.id} movie={item}/>)}
+                </div>
+            </ScrollPanel>
         </div>
     )
 }

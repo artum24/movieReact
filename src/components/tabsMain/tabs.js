@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {setTab} from '../../redux/movie-reducer';
-
+import './index.scss';
 const Tabss = ({setTab,tab}) => {
   const tabs = [
     {label:'Популярные', value:'popular'},

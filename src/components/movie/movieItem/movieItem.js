@@ -11,17 +11,16 @@ const MovieItem = ({data,genres}) => {
   `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   
   const release = (data.release_date === undefined)? '':data.release_date.slice(0,4)
-
+  const newDate = (data.title.length > 12) ? data.title.slice(0,9) + '...' : data.title;
   return (
     <NavLink to={`/movie/${data.id}/actors`}>
       <Card className='card'>
         <CardActionArea>
           <img src={url} alt='a'className='media'/>
           <div className='title'>
-            <p>{data.title}</p>
+            <p>{newDate}</p>
           </div>
           <div className='genre'>
-            <p>Жанри: </p>
             {genres.map(item => (
               <div className='item' key={item}>
                 <p> {item}</p>

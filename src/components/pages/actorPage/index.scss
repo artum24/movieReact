@@ -16,16 +16,10 @@
 .overvieww {
     margin-top: 30px;
 }
-.images {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    .smallImage {
-        width: 150px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
+.media-item {
+    width: 100%;
 }
+
 .info-actor {
     width: 100%;
     display: flex;
@@ -38,20 +32,53 @@
 
 }
 
-@media(max-width: 480px) {
+
+@media (max-width:375px) {
+    .detailMovie {
+        width: 365px;
+        .container {
+            margin-right: 0;
+        }
+    }
     .listMovie {
-        // margin-left: 40px;
         width: 100%;
         justify-content: center;
     }
-    .images {
-        margin-left: 30px;
-        margin-top: 20px;
-        justify-content: center;
-        .smallImage {
-            width: 150px;
+    .recomends {
+        width: 365px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        .recomend {
+            width: 100px;
+            height: 220px;
             margin-right: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            .title {
+                font-size: 14px;
+            }
+            .media {
+                width: 100px;
+                height: 120px;
+            }
+            .short {
+                display: flex;
+                justify-content: space-between;
+                height: 20px;
+                p {
+                    font-size: 11px;
+                }
+                .release {
+                    margin: 0;
+                }
+                .vote {
+                    margin: 0;
+                    margin-top: 10px;
+                    .MuiRating-decimal {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
         }
     }
 }

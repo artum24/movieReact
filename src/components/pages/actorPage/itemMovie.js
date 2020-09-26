@@ -14,11 +14,11 @@ const ItemMovie = ({movie}) => {
 
   return (
     <NavLink to={`/movie/${movie.id}/actors`}>
-      <Card className='card'>
+      <Card className='recomend'>
         <CardActionArea>
           <img src={url} alt='a'className='media'/>
           <div className='title'>
-            <p>{movie.title}</p>
+            <p className='title'>{movie.title}</p>
           </div>
           <div className='short'>
             <div className='release'>

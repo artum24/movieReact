@@ -11,7 +11,7 @@ import './index.scss';
 
 const useStyles = makeStyles({
     list: {
-      width: 800,
+      width: 375,
     },
     fullList: {
       width: 'auto',
@@ -25,7 +25,7 @@ export const TemporaryDrawer = ({genres,setSearchSet,isFetching,setSearchPanel})
     });
 
   const toggleDrawer = (open) => () => {
-    setState({ ...state, 'left': open });
+    setState({ ...state, 'right': open });
   };
   const submitGanra = (value) => {
         let genre = genres.filter(i => (i.name === value.genres)?i.id:null)
@@ -37,7 +37,7 @@ export const TemporaryDrawer = ({genres,setSearchSet,isFetching,setSearchPanel})
     <>
       <div className='mobileIcon'>
           <MenuIcon onClick={toggleDrawer(true)} className='button' style={{color: '#3b3b3b'}}>left</MenuIcon>
-            <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer( false)}>
+            <Drawer anchor={'right'} open={state['right']} onClose={toggleDrawer( false)}>
               <div
               className={clsx(classes.list)}
               role="presentation"

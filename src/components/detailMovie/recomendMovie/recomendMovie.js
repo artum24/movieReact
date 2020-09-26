@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,CardActionArea,Typography} from '@material-ui/core';
+import {Card,CardActionArea} from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
 import './index.scss';
@@ -15,11 +15,11 @@ const RecomendMovie = ({title,url,vote_average,release_date, id}) => {
                 <CardActionArea>
                     <img src={Img} alt='a'className='media'/>
                     <div className='title'>
-                        <Typography  variant="h6" >{title}</Typography>
+                        <p className='title'>{title}</p>
                     </div>
                     <div className='short'>
                         <div className='release'>
-                            <Typography variant='subtitle1'>{release} г.</Typography>
+                            <p>{release} г.</p>
                         </div>
                         <div className='vote'>
                             <Rating name='read-only' precision={0.1} defaultValue={2.5} value={vote_average/2} readOnly/>

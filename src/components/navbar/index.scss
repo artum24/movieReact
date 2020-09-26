@@ -23,8 +23,10 @@
     }
 }
 
-@media(max-width: 480px) {
+@media(max-width: 375px) {
     .mobileIcon {
+        margin-top: -17px;
+        height: 30px;
         display: flex;
         justify-content: center;
         .form {

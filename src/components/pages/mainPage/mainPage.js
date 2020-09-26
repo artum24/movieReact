@@ -4,25 +4,22 @@ import MoviesContainer from '../../movie/moviesContainer';
 import Paginationn from '../../pagination/pagination';
 import SearchContainer from '../../searchPanel/searchContainer';
 import Tabss from '../../tabsMain/tabs';
-import {Grid} from '@material-ui/core';
-
+import './index.scss';
 const MainPage = () => {
 
     return (
         <div className='gridMenu'>
-        <Grid container spacing={2}>
-          <Grid item xs={3}>
+          <div className='navBar'>
             <NavbarContainer/>
-          </Grid>
-          <Grid item xs={9}>
+          </div>
+          <div className='movie'>
             <div className='main-header'>
-            <SearchContainer/>
-              <Tabss/>
+              <SearchContainer/>
             </div>
+            <Tabss/>
             <MoviesContainer/>
-          </Grid>
-        </Grid>
-        <Paginationn/>
+            <Paginationn/>
+          </div>
       </div>
     )
 }

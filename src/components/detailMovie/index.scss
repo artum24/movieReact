@@ -42,6 +42,7 @@
     }
 
 }
+
 @media screen and (max-width: 2000px) {
     .detailMovie {
         .container {
@@ -108,25 +109,32 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: 375px) {
     .detailMovie{
-        width: 600px;
+        width: 365px;
+        .overview {
+            width: 360px;
+            margin-top: 10px;
+        }
         .container {
-            width: 600px;
+            width: 360px;
             display: grid;
             justify-content: left;
             .media-item {
                 display: flex;
-                width: 600px;
+                width: 360px;
                 justify-content: center;
                 img {
-                    width: 500px;
+                    width: 350px;
                 }
             }
             .info-item {
-                width: 600px;
+                width: 340px;
                 margin-top: 30px;
-                margin-left: 40px;
+                margin-left: 20px;
+                .genres {
+                    flex-wrap: wrap;
+                }
             }
         }
         .img {

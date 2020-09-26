@@ -13,7 +13,7 @@ export const withAuthRedirect = (Component) => {
             return (
                 <>
                 {!this.props.isAuth ? <Redirect to='/login'/>
-                :<Component {...this.props}/>})
+                :<Component {...this.props}/>}
                 </>
             )
         }

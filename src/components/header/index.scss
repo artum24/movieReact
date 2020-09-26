@@ -1,16 +1,25 @@
 .header {
-    margin-top: 15px;
-    
+    background-color: #303F9F;
+    height: 100px;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     .logo {
         margin-left: 60px;
         font-style: italic;
+        color: white;
+        font-size: 40px;
     }
     .logIn {
+        color: white;
         margin-right: 20px;
         .logOut {
             display: flex;
             .loginName {
+                margin: 0;
                 margin-right: 15px;
+                margin-top: 25px;
             }
         }
     }
@@ -42,8 +51,11 @@
     padding-top: 10px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 375px) {
     .header {
-        width: 600px;
+        width: 375px;
+        .logo {
+            font-size: 32px;
+        }
     }
 }

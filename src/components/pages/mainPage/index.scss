@@ -1,0 +1,38 @@
+.gridMenu {
+    margin-top: 70px;
+    max-width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    .main-header {
+        display: flex;
+        margin-bottom: 30px;
+        margin-top: -15px;
+        margin-left: 50px;
+        .headerTabs {
+            margin-left: 0;
+            max-width: 500px;
+            .active {
+                color: #303F9F;
+            }
+        }
+    }
+}
+
+@media(max-width:375px) {
+    .gridMenu {
+        width: 375px;
+        .movie {
+            width: 100%;
+            margin-left: -80px;
+            .main-header {
+                width: 200px;
+                display: block;
+                margin-left: 80px;
+            }
+        }
+        .navBar {
+            height: 30px;
+        }
+    }
+}

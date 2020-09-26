@@ -16,3 +16,12 @@
     display: flex;
     justify-content: center;
 }
+
+@media(max-width:375px) {
+    .videos {
+        max-width: 375px;
+        .video {
+            margin-right: 80px;
+        }
+    }
+}
