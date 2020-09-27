@@ -6,7 +6,7 @@ import LoginPage from './components/pages/loginPage/loginPage';
 import ActorPage from './components/pages/actorPage/actorPage';
 import Footer from './components/footer/footer';
 import DetailMovieContainer from './components/detailMovie/detailMovieContainer';
-import './app.scss';
+import './app.css';
 
 function App() {
 

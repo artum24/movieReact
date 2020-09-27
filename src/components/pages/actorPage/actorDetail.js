@@ -3,7 +3,6 @@ import { Typography} from '@material-ui/core';
 import ItemMovie from './itemMovie';
 import Gallery from './Gallery';
 import { ScrollPanel } from 'primereact/scrollpanel';
-
 import './index.scss';
 
 const ActorDetail = ({actor,movie,images}) => {
