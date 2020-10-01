@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 .App {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 .loader {
     width: 100%;
