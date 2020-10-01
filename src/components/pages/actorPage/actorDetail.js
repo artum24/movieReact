@@ -1,9 +1,7 @@
 import React from 'react';
-import { Typography} from '@material-ui/core';
 import ItemMovie from './itemMovie';
 import Gallery from './Gallery';
 import { ScrollPanel } from 'primereact/scrollpanel';
-import './index.scss';
 
 const ActorDetail = ({actor,movie,images}) => {
     let bio = (actor.biography.length > 500) ? actor.biography.slice(0,500)+'...' : actor.biography;
@@ -12,40 +10,30 @@ const ActorDetail = ({actor,movie,images}) => {
         imgArr.push({url:`https://image.tmdb.org/t/p/w500${images[i].file_path}`, alt:'asas'})
     }
     return (
-        <div className='detailMoviee'>
-            <div className='container'>
-                <div className='media-item'>
-                    <div className="img">
-                        {(imgArr.length < 3) ?<img src={imgArr[0].url} alt='sasa' className='detailPoster'/> : <Gallery images={imgArr}/>}
-                    </div>
+        <div className='mt-10'>
+            <div className='w-4/5 flex ml-auto mr-auto grid md:flex'>
+                <div className="md:w-3/5 max-w-md ">
+                    {(imgArr.length < 3) ?<img src={imgArr[0].url} alt='sasa' className='detailPoster'/> : <Gallery images={imgArr} className='w-auto'/>}
                 </div>
-                <div className='info'>
-                    <div className='name'>
-                        <Typography variant='h4'>{actor.name}</Typography>
-                    </div>
-                    <div className='birthday'>
-                        <Typography variant='subtitle1'><span className='titleSet'>Дата рождения:</span>{actor.birthday}</Typography>
-                    </div>
-                    <div className='place'>
-                        <Typography variant='subtitle1'><span className='titleSet'>Место рождения:</span>{actor.place_of_birth}</Typography>
-                    </div>
-                    <Typography variant='subtitle1' className='knowHow'><span className='titleSet'>Знают как:</span>
+                <div className='ml-0 md:ml-8'>
+                    <h4 className='mt-8 w-full'>{actor.name}</h4>
+                    <p className='mt-4'><span className='titleSet'>Дата рождения:</span>{actor.birthday}</p>
+                    <p className='mt-2'><span className='titleSet'>Место рождения:</span>{actor.place_of_birth}</p>
+                    <div className='mt-2 flex flex-wrap mb-8 '><span className='titleSet'>Знают как:</span>
                         {actor.also_known_as.map(know => {
                             return (
-                                <div className='item' key={know}>
-                                    <Typography variant='subtitle1'> {know}{', '}</Typography>
-                                </div>
+                                <p key={know} className='mr-1'> {know}{', '}</p>
                             )
                         })}
-                    </Typography>
+                    </div>
                 </div>
             </div>
-            <div className='overvieww'>
-                <Typography variant='subtitle1'>{bio}</Typography>
+            <div className='w-4/5 ml-auto mr-auto'>
+                <p>{bio}</p>
             </div>
-            <Typography variant='h6' className='info-actor'>АКТЕР В</Typography>
-            <ScrollPanel style={{width:'100%', height:'300px'}} className="custom">
-                <div className='recomends'>
+            <p className='w-100 flex justify-center mt-8 mb-8'>АКТЕР В</p>
+            <ScrollPanel style={{width:'100%', height:'300px'}} >
+                <div className='w-4/5 flex flex-wrap justify-between ml-auto mr-auto'>
                     {movie.map(item => <ItemMovie key={item.id} movie={item}/>)}
                 </div>
             </ScrollPanel>

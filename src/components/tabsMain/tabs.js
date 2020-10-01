@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {setTab} from '../../redux/movie-reducer';
-import './index.scss';
 const Tabss = ({setTab,tab}) => {
   const tabs = [
     {label:'Популярные', value:'popular'},
@@ -14,10 +13,10 @@ const Tabss = ({setTab,tab}) => {
   };
 
   return (
-      <div className='headerTabs'>
-        <ul className='mainTabs'>
+      <div className='w-1/3 ml-8 '>
+        <ul className='flex'>
             {tabs.map(item => {
-              let clas = (item.value === tab)? 'mainTabsItem active':'mainTabsItem';
+              let clas = (item.value === tab)? 'mr-3 text-indigo-700 text-base':'mr-3 text-base';
               return <li key={item.label} className={clas} onClick={() => handleChange(item.value)}>{item.label}</li>
             })}
         </ul>

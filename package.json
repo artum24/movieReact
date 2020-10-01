@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
+    "grade-js": "^1.0.10",
     "node-sass": "^4.14.1",
     "primeicons": "^4.0.0",
     "primereact": "^5.0.0-rc.2",
@@ -23,7 +24,8 @@
     "redux": "^4.0.5",
     "redux-form": "^8.3.6",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "tailwindcss": "^1.8.10"
   },
   "scripts": {
     "start": "react-scripts start",

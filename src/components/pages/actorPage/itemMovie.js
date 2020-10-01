@@ -1,8 +1,6 @@
 import React from 'react';
-import {Card,CardActionArea} from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
-import './index.scss';
 
 const ItemMovie = ({movie}) => {
 
@@ -13,23 +11,13 @@ const ItemMovie = ({movie}) => {
   const release = (movie.release_date === undefined)? '':movie.release_date.slice(0,4)
 
   return (
-    <NavLink to={`/movie/${movie.id}/actors`}>
-      <Card className='recomend'>
-        <CardActionArea>
-          <img src={url} alt='a'className='media'/>
-          <div className='title'>
-            <p className='title'>{movie.title}</p>
-          </div>
-          <div className='short'>
-            <div className='release'>
-              <p>{release} г.</p>
-            </div>
-            <div className='vote'>
-              <Rating name='read-only' precision={0.1} defaultValue={2.5} value={movie.vote_average/2} readOnly/>
-            </div>
-          </div>
-        </CardActionArea>
-      </Card>
+    <NavLink to={`/movie/${movie.id}/actors`} className='mt-8 bg-white rounded overflow-hidden ml-8 shadow-md ml-0 w-64'>
+      <img src={url} alt='a'className='w-auto'/>
+      <p className='h-15'>{movie.title}</p>
+      <div className='flex justify-between'>
+        <p>{release} г.</p>
+        <Rating name='read-only' precision={0.1} defaultValue={2.5} value={movie.vote_average/2} readOnly/>
+      </div>
     </NavLink>
     )
 }
