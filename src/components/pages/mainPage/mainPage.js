@@ -4,19 +4,16 @@ import MoviesContainer from '../../movie/moviesContainer';
 import Paginationn from '../../pagination/pagination';
 import SearchContainer from '../../searchPanel/searchContainer';
 import Tabss from '../../tabsMain/tabs';
-import './index.scss';
 const MainPage = () => {
 
     return (
-        <div className='gridMenu'>
-          <div className='navBar'>
-            <NavbarContainer/>
-          </div>
-          <div className='movie'>
-            <div className='main-header'>
+        <div className='mt-10 w-full flex sm:block md:flex'>
+          <NavbarContainer/>
+          <div className='w-full'>
+            <div className=' flex-wrap sm:block lg:flex lg:justify-between'>
               <SearchContainer/>
+              <Tabss/>
             </div>
-            <Tabss/>
             <MoviesContainer/>
             <Paginationn/>
           </div>

@@ -48,7 +48,7 @@ export const TemporaryDrawer = ({genres,setSearchSet,isFetching,setSearchPanel})
               </div>
             </Drawer>
       </div>
-      <div className='navbar'>
+      <div className='navbar ml-20'>
         <NavbarFormRedux genres={genres} onSubmit={submitGanra} isFetching={isFetching}/>
       </div>
     </>
