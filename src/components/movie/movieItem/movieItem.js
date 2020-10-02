@@ -22,7 +22,7 @@ const MovieItem = ({data,genres,windowWidth}) => {
     <NavLink to={`/movie/${data.id}/actors`} className='mt-8 bg-white rounded overflow-hidden ml-8 shadow-md ml-0 w-64'>
         <img src={url} alt='a' className='w-64'/>
         <div>
-            <h2 className='text-lg mt-1 h-10 w-64'>{data.title}</h2>
+            <h2 className='text-xl font-bold mt-1 h-10 w-64'>{data.title}</h2>
             <div className='flex flex-wrap mt-1 w-64 h-10'>
               {genres.map(item => (
                 <p className='text-base mr-2' key={item}> {item}</p>

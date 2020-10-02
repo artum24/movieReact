@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { Galleria } from 'primereact/galleria';
+import './index.scss';
 
 const Gallery = ({images}) =>  {
     const [activeIndex, setActiveIndex] = useState(2)
     let responsiveOptions = [
+        {
+            breakpoint: '1824px',
+            numVisible: 3
+        },
         {
             breakpoint: '1024px',
             numVisible: 3
@@ -26,10 +31,8 @@ const Gallery = ({images}) =>  {
     }
 
     return (
-        <div className="cardd">
-            <Galleria value={images} activeIndex={activeIndex} onItemChange={(e) => setActiveIndex(e.index)} responsiveOptions={responsiveOptions} numVisible={5}
-            item={itemTemplate} thumbnail={thumbnailTemplate} style={{ maxWidth: '640px' }} />
-        </div>
+        <Galleria className="w-auto min-w-full" value={images} activeIndex={activeIndex} onItemChange={(e) => setActiveIndex(e.index)} responsiveOptions={responsiveOptions} numVisible={5}
+        item={itemTemplate} thumbnail={thumbnailTemplate} style={{ maxWidth: '640px' }} />
     );
 }
 
