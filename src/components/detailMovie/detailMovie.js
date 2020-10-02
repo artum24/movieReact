@@ -25,8 +25,8 @@ const DetailMovie = ({movie}) => {
             <Banner bg={bg} className='bg'>
                 <div className='detailMovie text-white w-full text-base'>
                     <div className='container h-full'>
-                        <div className='sm:w-full flex ml-8 justify-center sm:ml-8 md:w-2/5'>
-                            <img src={url} alt='sasa' className='w-auto mt-0'/>
+                        <div className='sm:w-full flex ml-8 justify-center sm:ml-8 sm:w-1/5 md:w-2/5'>
+                            <img src={url} alt='sasa' className=' w-3/4 md:w-auto mt-0'/>
                         </div>
                         <div className='info-item text-base ml-5'>
                             <h4 className='font-bold text-xl'>{movie.title}</h4>
