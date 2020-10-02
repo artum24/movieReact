@@ -29,11 +29,11 @@ const DetailMovie = ({movie}) => {
                             <img src={url} alt='sasa' className='w-auto mt-0'/>
                         </div>
                         <div className='info-item text-base ml-5'>
-                            <h4 className='text-bold'>{movie.title}</h4>
+                            <h4 className='font-bold text-xl'>{movie.title}</h4>
                             <div className='tagline'>
-                                <p className='mt-4'>{movie.tagline}</p>
+                                <p className='mt-1 italic md:mt-3'>{movie.tagline}</p>
                             </div>
-                            <div className='mt-3 flex flex-wrap'><span className='titleSet'>Жанр:</span>
+                            <div className='mt-1 flex flex-wrap md:mt-3'><span className='titleSet'>Жанр:</span>
                                 {movie.genres.map(genre => {
                                     return (
                                         <div key={genre.name}>
@@ -42,17 +42,19 @@ const DetailMovie = ({movie}) => {
                                     )
                                 })}
                             </div>
-                            <div className='mt-3'><span className='titleSet'>Дата выхода:</span>{' '}{release}</div>
-                            <div className='mt-3'><span className='titleSet'>Бюджет:</span>{' '}{movie.budget}{" $"}</div>
-                            <div className='mt-3'><span className='titleSet'>Доход:</span>{' '}{movie.revenue}{" $"}</div>
-                            <div className='rating'>
-                                <span className='titleSet'>Рейтинг:</span>
-                                <div className='stars'>
-                                    <Rating name='read-only' precision={0.1} defaultValue={2.5} value={movie.vote_average/2} readOnly/>
+                            <div className='mt-1 md:mt-3'><span className='titleSet'>Дата выхода:</span>{' '}{release}</div>
+                            <div className='mt-1 md:mt-3'><span className='titleSet'>Бюджет:</span>{' '}{movie.budget}{" $"}</div>
+                            <div className='mt-1 md:mt-3'><span className='titleSet'>Доход:</span>{' '}{movie.revenue}{" $"}</div>
+                            <div className='flex md:block'>
+                                <div className='rating'>
+                                    <span className='titleSet'>Рейтинг:</span>
+                                    <div className='stars'>
+                                        <Rating name='read-only' precision={0.1} defaultValue={2.5} value={movie.vote_average/2} readOnly/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className='revenue'>
-                                <p><span className='titleSet'>Время:</span>{' '}{movie.runtime}{" мин."}</p>
+                                <div className='revenue ml-2 md:ml-0'>
+                                    <p><span className='titleSet'>Время:</span>{' '}{movie.runtime}{" мин."}</p>
+                                </div>
                             </div>
                         </div>
                     </div>

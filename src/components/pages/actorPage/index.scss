@@ -1,0 +1,8 @@
+.p-galleria-content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    min-width: 250px;
+}

@@ -43,8 +43,12 @@ export const TemporaryDrawer = ({genres,setSearchSet,isFetching,setSearchPanel})
               role="presentation"
               onKeyDown={toggleDrawer(false)}
               >
-              <CloseIcon onClick={toggleDrawer(false)}/>
-              <NavbarFormRedux genres={genres} onSubmit={submitGanra} isFetching={isFetching}/>
+              <div className='mt-2 ml-2'>
+                <CloseIcon onClick={toggleDrawer(false)}/>
+              </div>
+              <div className='ml-20 mt-20'>
+                <NavbarFormRedux genres={genres} onSubmit={submitGanra} isFetching={isFetching}/>
+              </div>
               </div>
             </Drawer>
       </div>
