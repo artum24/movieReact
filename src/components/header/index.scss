@@ -19,7 +19,7 @@
             .loginName {
                 margin: 0;
                 margin-right: 15px;
-                margin-top: 25px;
+                margin-top: 5px;
             }
         }
     }
@@ -29,23 +29,7 @@
         color: black;
     }
 }
-.MuiDialog-paper {
-    width: 440px;
-    height: 300px;
-    #form-dialog-title {
-        text-align: center;
-    }
-    .login,
-    .password,
-    .submitBtn{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-    .submitBtn {
-        margin-top: 20px;
-    }
-}
+
 .typegraphyy {
     text-align: center;
     padding-top: 10px;

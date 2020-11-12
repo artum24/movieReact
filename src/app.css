@@ -5,6 +5,9 @@
 .App {
     font-family: 'Manrope', sans-serif;
 }
+.app {
+    min-height: 100vh;
+}
 .loader {
     width: 100%;
     display: flex;
