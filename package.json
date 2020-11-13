@@ -3,12 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.2.0",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.7",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "@types/react-redux": "^7.1.11",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/redux-form": "^8.3.0",
+    "@types/styled-components": "^5.1.4",
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "grade-js": "^1.0.10",
@@ -25,7 +34,8 @@
     "redux-form": "^8.3.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.0",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^1.8.10",
+    "typescript": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
