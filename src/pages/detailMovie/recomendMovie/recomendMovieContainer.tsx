@@ -1,11 +1,14 @@
 
 import React from 'react';
+
 import {connect} from 'react-redux';
-import {CircularProgress, Typography } from '@material-ui/core';
-import RecomendMovie from './recomendMovie';
-import { ScrollPanel } from 'primereact/scrollpanel';
 import { AppStateType } from '../../../redux/store';
 import { MovieType } from '../../../redux/types';
+
+import RecomendMovie from './recomendMovie';
+
+import {CircularProgress, Typography } from '@material-ui/core';
+import { ScrollPanel } from 'primereact/scrollpanel';
 
 type RecomendMovieContainerType = {
     recomend: Array<MovieType>,

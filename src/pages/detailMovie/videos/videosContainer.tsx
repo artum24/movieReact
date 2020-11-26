@@ -1,10 +1,12 @@
 import React from 'react';
+
 import {connect} from 'react-redux';
-import {CircularProgress, Typography } from '@material-ui/core';
-import Video from './video';
-import './index.scss';
 import { AppStateType } from '../../../redux/store';
 import {VideoType} from '../../../redux/types';
+
+import Video from './video';
+
+import {CircularProgress, Typography } from '@material-ui/core';
 
 type VideosTypee = {
     videos: Array<VideoType>,
@@ -29,4 +31,5 @@ let mapStateToProps = (state:AppStateType) => ({
     videos: state.detail.videos,
     isFetching: state.detail.isFetching
 })
+
 export default connect(mapStateToProps)(Videos);

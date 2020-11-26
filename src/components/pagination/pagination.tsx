@@ -1,8 +1,10 @@
 import React from 'react';
+
 import {connect} from 'react-redux';
-import {Pagination} from '@material-ui/lab';
 import {changePage} from '../../redux/movie-reducer';
 import { AppStateType } from '../../redux/store';
+
+import {Pagination} from '@material-ui/lab';
 
 type MapStateToPropsType = {
     page: number,

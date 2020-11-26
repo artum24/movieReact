@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+
 import { Galleria } from 'primereact/galleria';
-import './index.scss';
 
 type ImgType = {
     alt: string,
@@ -13,6 +13,7 @@ type GalleryType = {
 
 const Gallery:React.FC<GalleryType> = ({images}) =>  {
     const [activeIndex, setActiveIndex] = useState(2)
+    
     let responsiveOptions = [
         {
             breakpoint: '1824px',
@@ -31,6 +32,7 @@ const Gallery:React.FC<GalleryType> = ({images}) =>  {
             numVisible: 2
         }
     ]; 
+
     const itemTemplate = (item:any) =>  {
         return <img src={item.url} alt={item.alt} style={{ width: '100%', display: 'block' }} />;
     }

@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
+
 import {connect} from 'react-redux';
-import {setNavbarDataThunk} from '../../redux/navbar-reducer';
-import {setSearchSet,setSearchPanel} from '../../redux/movie-reducer'; 
-import {TemporaryDrawer} from './navbar';
 import { GenresType } from '../../redux/types';
 import { AppStateType } from '../../redux/store';
+import {setNavbarDataThunk} from '../../redux/navbar-reducer';
+import {setSearchSet,setSearchPanel} from '../../redux/movie-reducer'; 
+
+import {TemporaryDrawer} from './navbar';
 
 type MapStateToPropsType = {
     genres: Array<GenresType> ,
     isFetching:boolean,
-
 }
 
 type MapDispatchToProps = {
@@ -21,6 +22,7 @@ type MapDispatchToProps = {
 type NavbarContainerType = MapStateToPropsType & MapDispatchToProps;
 
 const NavbarContainer: React.FC<NavbarContainerType> = ({isFetching,setNavbarDataThunk,genres,setSearchSet,setSearchPanel}) => {
+
     useEffect(() => {
         setNavbarDataThunk()
     },[setNavbarDataThunk])
@@ -34,7 +36,5 @@ let mapStateToProps = (state:AppStateType):MapStateToPropsType => ({
     genres:state.navbar.genres,
     isFetching: state.movie.isFetching,
 })
-
-
 
 export default connect(mapStateToProps,{setNavbarDataThunk,setSearchSet,setSearchPanel})(NavbarContainer);

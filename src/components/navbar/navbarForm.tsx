@@ -1,12 +1,16 @@
 import React from 'react';
+
 import {Field, reduxForm,InjectedFormProps} from 'redux-form';
-import GanrasForm from '../common/Forms/ganras';
+import { GenresType } from '../../redux/types';
+
 import {validateNavbar} from '../../utils/validator';
-import { Button  } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
+
+import GanrasForm from '../common/Forms/ganras';
 import RadioButton from '../common/Forms/sort';
 import Year from '../common/Forms/year';
-import { GenresType } from '../../redux/types';
+
+import { Button  } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 
 type NavbarFormType = {
     genres: Array<GenresType>,

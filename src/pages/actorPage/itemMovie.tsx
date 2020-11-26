@@ -1,7 +1,10 @@
 import React from 'react';
+
 import {NavLink} from 'react-router-dom';
-import Rating from '@material-ui/lab/Rating';
+
 import { MovieType } from '../../redux/types';
+
+import Rating from '@material-ui/lab/Rating';
 
 type ItemMovieType = {
   movie: MovieType

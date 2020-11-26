@@ -2,6 +2,7 @@ import React  from 'react';
 import {connect} from 'react-redux';
 import {setSearchPanel,searchMoviesThunk} from '../../redux/movie-reducer';
 import { AppStateType } from '../../redux/store';
+
 import SearchPanel from './searchPanel';
 
 type SearchContainerType = {
@@ -15,6 +16,7 @@ const SearchContainer:React.FC<SearchContainerType> = ({setSearchPanel,searchMov
         <SearchPanel setSearchPanel={setSearchPanel} searchMoviesThunk={searchMoviesThunk} />
     )
 }
+
 let mapStateToProps = (state:AppStateType) => ({
 })
 

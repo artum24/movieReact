@@ -2,10 +2,12 @@ import {DetailActors} from '../api/api';
 import { ActorImagesType, ActorType, MovieType } from './types';
 import {ThunkAction} from 'redux-thunk';
 import { AppStateType } from './store';
+
 const SET_ACTOR = 'SET_ACTOR'
 const IS_FETCHING = 'IS_FETCHING'
 const SET_ACTORS_MOVIE = 'SET_ACTORS_MOVIE';
 const SET_ACTORS_IMAGE = 'SET_ACTORS_IMAGE'
+
 type initialStateType = {
     detail: ActorType ,
     isFetching: boolean,
@@ -115,7 +117,6 @@ export const setActorImage = (data:Array<ActorImagesType>):SetActorImageType => 
 // Thunks
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsType>
-
 
 export const setActorDetailThunk = (id:number):ThunkType =>  async (dispatch) => {
     dispatch(chengeIsFetchin(true))

@@ -1,10 +1,13 @@
 import React from 'react';
+
 import {connect} from 'react-redux';
-import {CircularProgress } from '@material-ui/core';
-import Actor from './actor';
-import { ScrollPanel } from 'primereact/scrollpanel';
 import { ActorType } from '../../../redux/types';
 import { AppStateType } from '../../../redux/store';
+
+import Actor from './actor';
+
+import { ScrollPanel } from 'primereact/scrollpanel';
+import {CircularProgress } from '@material-ui/core';
 
 type ActorsType = {
     actors: Array<ActorType>,

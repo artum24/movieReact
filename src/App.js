@@ -1,11 +1,14 @@
 import React from 'react';
-import Header from './components/header/header';
+
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+import Header from './components/header/header';
 import MainPage from './pages/mainPage/mainPage';
 import LoginPage from './pages/loginPage/loginPage';
 import ActorPage from './pages/actorPage/actorPage';
 import Footer from './components/footer/footer';
 import DetailMovieContainer from './pages/detailMovie/detailMovieContainer';
+
 import './app.css';
 
 function App() {
@@ -26,6 +29,7 @@ function App() {
         </Router>
     </div>
   );
+  
 }
 
 export default App;

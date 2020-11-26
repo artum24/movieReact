@@ -24,11 +24,14 @@ const AuthReducer = (state=initialState, action:ActionsType) => {
         }
     }
 }
+
 type ActionsType = LogOutType
 
 type LogOutType = {
     type: typeof LOG_OUT
 }
+
 export const logOut = (): LogOutType => ({type:LOG_OUT })
+
 export default AuthReducer;
 

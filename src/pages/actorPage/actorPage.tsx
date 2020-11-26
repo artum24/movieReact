@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
-import {connect} from 'react-redux';
+
 import { withRouter,RouteComponentProps  } from 'react-router-dom';
-import {CircularProgress } from '@material-ui/core';
-import ActorDetail from './actorDetail';
-import {setActorDetailThunk} from '../../redux/actors-reducer';
-import {withAuthRedirect} from '../../components/hoc/hoc';
+
+import {connect} from 'react-redux';
 import {compose} from 'redux';
 import { ActorImagesType, ActorType, MovieType } from '../../redux/types';
 import { AppStateType } from '../../redux/store';
+import {setActorDetailThunk} from '../../redux/actors-reducer';
+
+import {withAuthRedirect} from '../../components/hoc/hoc';
+
+import ActorDetail from './actorDetail';
+
+import {CircularProgress } from '@material-ui/core';
 
 type MapStateToPropsType = {
     isFetching: boolean,
@@ -42,7 +47,9 @@ let mapStateToProps = (state:AppStateType) => ({
     actorsMovie: state.actor.actorsMovie,
     images: state.actor.images
 })
+
 let ActorPageContainerWithRouter = withRouter(ActorPageContainer)
+
 export default compose(
     connect(mapStateToProps,{setActorDetailThunk}),
     withAuthRedirect

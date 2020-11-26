@@ -2,11 +2,13 @@ import {navbarAPI} from '../api/api';
 import { ThunkAction } from 'redux-thunk';
 import {AppStateType} from './store';
 import {GenresType} from './types';
+
 const SET_NAVBAR_DATA = 'SET_NAVBAR_DATA';
 
 type initialStateType ={
     genres: Array<GenresType> 
 }
+
 let initialState:initialStateType = {
     genres:[],
 }

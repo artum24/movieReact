@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+
+import { ActorType, MovieType,ActorImagesType } from '../../redux/types';
+
 import ItemMovie from './itemMovie';
 import Gallery from './Gallery';
 import { ScrollPanel } from 'primereact/scrollpanel';
+
 import { Button } from '@material-ui/core';
-import { ActorType, MovieType,ActorImagesType } from '../../redux/types';
 
 type ActorDetailType = {
     actor: ActorType,

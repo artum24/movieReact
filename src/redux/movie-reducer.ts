@@ -2,6 +2,7 @@ import {MovieApi} from '../api/api';
 import { MovieType } from './types';
 import {ThunkAction} from 'redux-thunk';
 import {AppStateType} from './store';
+
 const SET_MOVIES = 'SET_MOVIES';
 const SET_SEARCH_SET = 'SET_SEARCH_SET';
 const CHANGE_PAGE = 'CHANGE_PAGE';
@@ -9,6 +10,7 @@ const ISFETCHING_CHANGE = 'ISFETCHING_CHANGE';
 const SET_TOTAL_RESULTS = 'SET_TOTAL_RESULTS';
 const SET_SEARCH = 'SET_SEARCH';
 const SET_TABS = 'SET_TABS';
+
 type InitialStateType = {
     movies: Array<MovieType>,
     genre: number,
@@ -74,7 +76,8 @@ const movieReducer = (state=initialState, action:ActionsType):InitialStateType =
         case SET_TABS : {
             return {
                 ...state,
-                tab: action.payload
+                tab: action.payload,
+                search: ''
             }
         }
         default: 
@@ -83,6 +86,7 @@ const movieReducer = (state=initialState, action:ActionsType):InitialStateType =
 }
 
 // artions type
+
 type ActionsType = SetMovieType | SetSearchSetType | ChangePageType
 | IsFetchingChangeType | SetTotalResultsType | SetSearchPanelType
 | SetTabType;
@@ -120,6 +124,7 @@ type SetTabType = {
     type: typeof SET_TABS,
     payload: string
 }
+
 // actions
 
 export const setMovie = (movies:Array<MovieType>):SetMovieType => ({
@@ -157,10 +162,9 @@ export const setTab = (tab:string):SetTabType => ({
     payload: tab
 })
 
-
 // Thunks 
-type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsType>
 
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsType>
 
 export const setMoviesThunk = (genre:number,sort:string,year:number,page: number):ThunkType => async (dispatch) => {
     dispatch(isFetchingChange(true))
@@ -171,6 +175,7 @@ export const setMoviesThunk = (genre:number,sort:string,year:number,page: number
         dispatch(isFetchingChange(false))
     }
 }
+
 export const setTabThunk = (tab:string,page:number):ThunkType => async (dispatch) => {
     dispatch(isFetchingChange(true))
     let responce = await MovieApi.getTabsMovie(tab,page)
@@ -180,6 +185,7 @@ export const setTabThunk = (tab:string,page:number):ThunkType => async (dispatch
         dispatch(isFetchingChange(false))
     }
 }
+
 export const searchMoviesThunk = (query:string,page:number):ThunkType => async (dispatch) => {
     dispatch(isFetchingChange(true))
     let responce = await MovieApi.search(query,page);

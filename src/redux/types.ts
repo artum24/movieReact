@@ -63,8 +63,6 @@ export type DetailMovieType = {
     runtime: number | null
 }
 
-
-
 export type ActorType = {
     character: string | null,
     adult: boolean | null,
