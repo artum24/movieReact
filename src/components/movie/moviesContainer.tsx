@@ -1,67 +1,52 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import {connect} from 'react-redux';
-import { GenresType, MovieType } from '../../redux/types';
-import { AppStateType } from '../../redux/store';
-import {setMoviesThunk,searchMoviesThunk,setTabThunk} from '../../redux/movie-reducer';
+import { useDispatch, useSelector } from "react-redux";
+import { AppStateType } from "../../redux/store";
+import {
+  setMoviesThunk,
+  searchMoviesThunk,
+  setTabThunk,
+} from "../../redux/movie-reducer";
 
-import Movies from './movies';
+import Movies from "./movies";
 
-import {CircularProgress } from '@material-ui/core';
+import { CircularProgress } from "@material-ui/core";
 
+const MoviesContainer: React.FC = () => {
+  const dispatch = useDispatch();
+  const movies = useSelector((state: AppStateType) => state.movie.movies);
+  const genres = useSelector((state: AppStateType) => state.navbar.genres);
+  const genre = useSelector((state: AppStateType) => state.movie.genre);
+  const sort = useSelector((state: AppStateType) => state.movie.sort);
+  const year = useSelector((state: AppStateType) => state.movie.year);
+  const page = useSelector((state: AppStateType) => state.movie.page);
+  const isFetching = useSelector(
+    (state: AppStateType) => state.movie.isFetching
+  );
+  const search = useSelector((state: AppStateType) => state.movie.search);
+  const tab = useSelector((state: AppStateType) => state.movie.tab);
 
-type MapStateToPropsType = {
-    movies: Array<MovieType>,
-    genres: Array<GenresType>,
-    genre: number,
-    sort: string,
-    year: number,
-    page: number,
-    isFetching: boolean,
-    search: string,
-    tab: string
-}
+  useEffect(() => {
+    if (!search) {
+      dispatch(setMoviesThunk(genre, sort, year, page));
+      window.scrollTo(0, 0);
+    }
+    if (search.length > 0) {
+      dispatch(searchMoviesThunk(search, page));
+      window.scrollTo(0, 0);
+    }
+    if (tab !== "") {
+      dispatch(setTabThunk(tab, page));
+      window.scrollTo(0, 0);
+    }
+  }, [genre, sort, year, page, search, tab, dispatch]);
+  return !isFetching ? (
+    <Movies movies={movies} genres={genres} />
+  ) : (
+    <div className="loader">
+      <CircularProgress />
+    </div>
+  );
+};
 
-type MapDispatchPropsType = {
-    setMoviesThunk:(genre:number,sort:string,year:number,page: number) => void,
-    searchMoviesThunk:(query:string,page:number) => void,
-    setTabThunk: (tab:string,page:number) => void
-}
-
-type MoviesContainerType = MapStateToPropsType & MapDispatchPropsType;
-const MoviesContainer:React.FC<MoviesContainerType> = ({setTabThunk,searchMoviesThunk,setMoviesThunk,movies,genres,genre,sort,year,page,isFetching,search,tab}) => {
-    useEffect(() => {
-        if(!search){
-            setMoviesThunk(genre,sort,year,page)
-            window.scrollTo(0,0)
-        }
-        if(search.length > 0) {
-            searchMoviesThunk(search,page)
-            window.scrollTo(0,0)
-        } 
-        if (tab !== '') {
-            setTabThunk(tab, page)
-            window.scrollTo(0,0)
-        }
-    },[setTabThunk,setMoviesThunk,genre,sort,year,page,search,searchMoviesThunk,tab])
-    return (
-        <>
-            {(!isFetching) ? <Movies movies={movies} genres={genres} />: <div className='loader'><CircularProgress/></div>}
-        </>
-    )
-}
-
-
-let mapStateToProps = (state:AppStateType):MapStateToPropsType => ({
-    movies: state.movie.movies,
-    genres: state.navbar.genres,
-    genre: state.movie.genre,
-    sort: state.movie.sort,
-    year: state.movie.year,
-    page: state.movie.page,
-    isFetching: state.movie.isFetching,
-    search: state.movie.search,
-    tab: state.movie.tab
-})
-
-export default connect(mapStateToProps,{setMoviesThunk,searchMoviesThunk,setTabThunk})(MoviesContainer);
+export default MoviesContainer;

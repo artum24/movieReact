@@ -5,14 +5,12 @@ const instance = axios.create({
     baseURL: url,
 })
 
-// Navbar
 export const navbarAPI = {
     getGenras() {
         return instance.get(`genre/movie/list?${API_KEY}`)
     }
 }
 
-//Movie
 export const MovieApi = {
     getMovies(genre:number, sort:string,year:number,page:number) {
         return instance.get(`discover/movie?${API_KEY}&with_genres=${genre}&sort_by=${sort}&year=${year}&page=${page}`)
@@ -26,7 +24,6 @@ export const MovieApi = {
     
 }
 
-// getDatailMovie
 export const DetailMovie = {
     getDetailMovie(id:number) {
         return instance.get(`movie/${id}?${API_KEY}`)
@@ -40,10 +37,8 @@ export const DetailMovie = {
     getRecomendationMovie(id:number) {
         return instance.get(`movie/${id}/similar?${API_KEY}`)
     },
-
 }
 
-// Actors 
 export const DetailActors = {
     getDetatilActor(id:number) {
         return instance.get(`person/${id}?${API_KEY}`)

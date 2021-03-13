@@ -1,20 +1,17 @@
 import React from 'react';
 import {reduxForm, Field,InjectedFormProps} from 'redux-form';
-
 import renderTextField from '../common/Forms/searchPanelForm';
+import {setSearchPanel,searchMoviesThunk} from '../../redux/movie-reducer';
 
 import {Button} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import { useDispatch } from 'react-redux';
 
-type SearchPanelType = {
-    setSearchPanel: (str:string) => void,
-    searchMoviesThunk: (str:string, page: number) =>void,
-}
-
-const SearchPanel: React.FC<SearchPanelType> = ({setSearchPanel,searchMoviesThunk}) => {
+const SearchPanel: React.FC = () => {
+    const dispatch = useDispatch();
     const Submit = (values:any) => {
-        setSearchPanel(values.searchPanel)
-        searchMoviesThunk(values.searchPanel,1)
+        dispatch(setSearchPanel(values.searchPanel));
+        dispatch(searchMoviesThunk(values.searchPanel,1));
     }
     return(
         <SearchPanelRedux onSubmit={Submit}/>

@@ -1,56 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import { withRouter,RouteComponentProps } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
-import {connect} from 'react-redux';
-import {compose} from 'redux';
-import { AppStateType } from '../../redux/store';
-import { DetailMovieType } from '../../redux/types';
-import {setMovieThunk} from '../../redux/detail-reducer';
+import { useDispatch, useSelector } from "react-redux";
+import { compose } from "redux";
+import { AppStateType } from "../../redux/store";
+import { setMovieThunk } from "../../redux/detail-reducer";
 
-import DetailMovie from './detailMovie';
-import {withAuthRedirect} from '../../components/hoc/hoc';
+import DetailMovie from "./detailMovie";
+import { withAuthRedirect } from "../../components/hoc/hoc";
 
-import {CircularProgress } from '@material-ui/core';
+import { CircularProgress } from "@material-ui/core";
 
-type MapStateToPropsType = {
-    movie: DetailMovieType | null,
-    isFetching: boolean
-}
+const DetailMovieContainer: React.FC<RouteComponentProps> = ({ match }) => {
+  const dispatch = useDispatch();
+  const movie = useSelector((state: AppStateType) => state.detail.movie);
+  const isFetching = useSelector(
+    (state: AppStateType) => state.detail.isFetching
+  );
+  const id = match.url.slice(7);
+  const idActor = id.substr(0, id.length - 7);
+  const newId = +idActor;
 
-type MapDispatchToPropsType = {
-    setMovieThunk: (id:number) => void
-}
+  useEffect(() => {
+    dispatch(setMovieThunk(newId));
+  }, [dispatch, newId]);
 
-type DetailMovieContainerType = MapStateToPropsType & MapDispatchToPropsType;
+  return !isFetching ? (
+    <DetailMovie movie={movie} />
+  ) : (
+    <div className="loader">
+      <CircularProgress />
+    </div>
+  );
+};
 
-const DetailMovieContainer:React.FC<DetailMovieContainerType & RouteComponentProps> = ({movie,match,setMovieThunk,isFetching}) => {
-    
-    const id =match.url.slice(7);
-    const idActor = id.substr(0, id.length - 7)
-    const newId = +idActor;
-    
-    useEffect(() => {
-        setMovieThunk(newId)
-    },[setMovieThunk,newId])
+let DetailMovieContainerWithRouter = withRouter(DetailMovieContainer);
 
-    return (
-        <>
-            {(!isFetching) ? <DetailMovie movie={movie}/>: <div className='loader'><CircularProgress /></div> }
-        </>
-    )
-
-}
-
-
-let mapStateToProps = (state:AppStateType):MapStateToPropsType => ({
-    movie: state.detail.movie,
-    isFetching: state.detail.isFetching,
-})
-
-let DetailMovieContainerWithRouter = withRouter(DetailMovieContainer)
-
-export default compose(
-    connect(mapStateToProps,{setMovieThunk}),
-    withAuthRedirect
-)(DetailMovieContainerWithRouter)
+export default compose(withAuthRedirect)(DetailMovieContainerWithRouter);

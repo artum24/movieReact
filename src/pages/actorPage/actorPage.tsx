@@ -1,56 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import { withRouter,RouteComponentProps  } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import { compose } from "redux";
+import { AppStateType } from "../../redux/store";
+import { setActorDetailThunk } from "../../redux/actors-reducer";
+import { withAuthRedirect } from "../../components/hoc/hoc";
+import ActorDetail from "./actorDetail";
+import { CircularProgress } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
 
-import {connect} from 'react-redux';
-import {compose} from 'redux';
-import { ActorImagesType, ActorType, MovieType } from '../../redux/types';
-import { AppStateType } from '../../redux/store';
-import {setActorDetailThunk} from '../../redux/actors-reducer';
+const ActorPageContainer: React.FC<RouteComponentProps> = ({ match }) => {
+  const dispatch = useDispatch();
+  const isFetching = useSelector(
+    (state: AppStateType) => state.actor.isFetching
+  );
+  const detail = useSelector((state: AppStateType) => state.actor.detail);
+  const actorsMovie = useSelector(
+    (state: AppStateType) => state.actor.actorsMovie
+  );
+  const images = useSelector((state: AppStateType) => state.actor.images);
 
-import {withAuthRedirect} from '../../components/hoc/hoc';
+  let id = match.url.slice(7);
+  let newId = +id;
 
-import ActorDetail from './actorDetail';
+  useEffect(() => {
+    dispatch(setActorDetailThunk(newId));
+  }, [dispatch, newId]);
 
-import {CircularProgress } from '@material-ui/core';
+  return !isFetching && detail !== null ? (
+    <ActorDetail actor={detail} movie={actorsMovie} images={images} />
+  ) : (
+    <div className="loader">
+      <CircularProgress />
+    </div>
+  );
+};
 
-type MapStateToPropsType = {
-    isFetching: boolean,
-    detail: ActorType,
-    actorsMovie: Array<MovieType>,
-    images: Array<ActorImagesType>
-}
+let ActorPageContainerWithRouter = withRouter(ActorPageContainer);
 
-type MapDispatchToPropsType = {
-    setActorDetailThunk: (id:number) => void,
-}
-
-type ActorPageContainerType = MapStateToPropsType & MapDispatchToPropsType;
-
-const ActorPageContainer: React.FC<ActorPageContainerType & RouteComponentProps > = ({match,isFetching,detail,setActorDetailThunk,actorsMovie,images}) => {
-    let id =match.url.slice(7);
-    let newId = +id;
-    useEffect(() => {
-        setActorDetailThunk(newId)
-    },[setActorDetailThunk, newId])
-    return (
-        <>
-            {(!isFetching && detail!==null) ? <ActorDetail actor={detail} movie={actorsMovie} images={images} />: <div className='loader'><CircularProgress/></div> }
-        </>
-    )
-}
-
-
-let mapStateToProps = (state:AppStateType) => ({
-    isFetching: state.actor.isFetching,
-    detail: state.actor.detail,
-    actorsMovie: state.actor.actorsMovie,
-    images: state.actor.images
-})
-
-let ActorPageContainerWithRouter = withRouter(ActorPageContainer)
-
-export default compose(
-    connect(mapStateToProps,{setActorDetailThunk}),
-    withAuthRedirect
-)(ActorPageContainerWithRouter)
+export default compose(withAuthRedirect)(ActorPageContainerWithRouter);
