@@ -1,7 +1,7 @@
 import React from "react";
 
 import { GenresType } from "../../redux/types";
-import { setSearchSet, setSearchPanel } from "../../redux/movie-reducer";
+import { setSearchSet, setSearchPanel } from "../../redux/movie/actions";
 
 import NavbarFormRedux from "./navbarForm";
 

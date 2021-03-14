@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import { AppStateType } from "../../redux/store";
-import { setNavbarDataThunk } from "../../redux/navbar-reducer";
+import { setNavbarDataThunk } from "../../redux/navbar/thunk";
 
 import { TemporaryDrawer } from "./navbar";
 import { useDispatch, useSelector } from "react-redux";

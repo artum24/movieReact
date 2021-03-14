@@ -1,6 +1,6 @@
 import React from "react";
 
-import { changePage } from "../../redux/movie-reducer";
+import { changePage } from "../../redux/movie/actions";
 import { AppStateType } from "../../redux/store";
 
 import { Pagination } from "@material-ui/lab";

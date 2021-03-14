@@ -1,11 +1,11 @@
 import {createStore, combineReducers,applyMiddleware, compose} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 import thunkMiddleware from 'redux-thunk';
-import navbarReducer from './navbar-reducer';
-import movieReducer from './movie-reducer';
-import DetailMovieReducer from './detail-reducer';
-import AuthReducer from './auth-reducer';
-import DetailActorReducer from './actors-reducer';
+import navbarReducer from './navbar/reducer';
+import movieReducer from './movie/reducer';
+import DetailMovieReducer from './detail/reducer';
+import AuthReducer from './auth/reducer';
+import DetailActorReducer from './actors/reducer';
 
 let rootReducer  = combineReducers({
     form: formReducer,

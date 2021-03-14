@@ -5,7 +5,7 @@ import { withRouter, RouteComponentProps } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { compose } from "redux";
 import { AppStateType } from "../../redux/store";
-import { setMovieThunk } from "../../redux/detail-reducer";
+import { setMovieThunk } from "../../redux/detail/thunk";
 
 import DetailMovie from "./detailMovie";
 import { withAuthRedirect } from "../../components/hoc/hoc";

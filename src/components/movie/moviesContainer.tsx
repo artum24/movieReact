@@ -6,7 +6,7 @@ import {
   setMoviesThunk,
   searchMoviesThunk,
   setTabThunk,
-} from "../../redux/movie-reducer";
+} from "../../redux/movie/thunk";
 
 import Movies from "./movies";
 

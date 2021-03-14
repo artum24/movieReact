@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setTab } from "../../redux/movie-reducer";
+import { setTab } from "../../redux/movie/actions";
 import { AppStateType } from "../../redux/store";
 
 import { Grid } from "@material-ui/core";

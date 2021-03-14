@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../redux/auth-reducer";
+import { logOut } from "../../redux/auth/actions";
 import { AppStateType } from "../../redux/store";
 
 import { useAuth0 } from "@auth0/auth0-react";

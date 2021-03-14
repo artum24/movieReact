@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { compose } from "redux";
 import { AppStateType } from "../../redux/store";
-import { setActorDetailThunk } from "../../redux/actors-reducer";
+import { setActorDetailThunk } from "../../redux/actors/thunk";
 import { withAuthRedirect } from "../../components/hoc/hoc";
 import ActorDetail from "./actorDetail";
 import { CircularProgress } from "@material-ui/core";
